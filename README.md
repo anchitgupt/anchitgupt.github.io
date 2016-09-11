@@ -1,4 +1,4 @@
-# anchitgupta.github.io
+# anchitgupt.github.io
 MIT License
 
 Copyright (c) 2016 Anchit Gupta
