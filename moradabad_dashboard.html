@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moradabad Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        section {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #3498db;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        #weather-info p,
+        #rps-result,
+        #rps-choices {
+            margin: 5px 0;
+        }
+
+        #weather-info p {
+            font-size: 1.1em;
+        }
+        
+        #rps-result {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 15px;
+        }
+
+        #rps-choices {
+            font-style: italic;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        #rps-game button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        #rps-game button:hover {
+            background-color: #2980b9;
+        }
+
+        #instagram-feed p {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        /* Basic Responsiveness */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            section {
+                padding: 10px;
+            }
+            #rps-game button {
+                display: block;
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Moradabad Daily Dashboard</h1>
+
+    <section id="weather-section">
+        <h2>Today's Weather in Moradabad</h2>
+        <div id="weather-info"></div>
+    </section>
+
+    <section id="instagram-section">
+        <h2>India on Instagram</h2>
+        <div id="instagram-feed">
+            <!-- User: To embed Instagram images, sign up for a service like LightWidget (lightwidget.com) or SnapWidget (snapwidget.com). Configure it for the desired public Instagram page (e.g., @instagram) and number of images (2). Then, paste the embed code (usually an iframe or script) provided by the service below this comment. -->
+            <p>Instagram feed will be displayed here. Please configure your embedding service and paste the code.</p>
+            <p>Example: If you choose LightWidget, you would generate an embed code there and paste it here. You'll need to specify the Instagram account (e.g., @instagram or a specific Indian tourism page) and that you want to display 2 recent images.</p>
+        </div>
+    </section>
+
+    <section id="game-section">
+        <h2>Quick Game: Rock Paper Scissors</h2>
+        <div id="rps-game">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+            <div id="rps-result" style="margin-top: 10px;">Choose your weapon!</div>
+            <div id="rps-choices" style="margin-top: 10px;"></div>
+        </div>
+    </section>
+
+    <script>
+        async function fetchAndDisplayWeather() {
+            const weatherInfoDiv = document.getElementById('weather-info');
+            weatherInfoDiv.innerHTML = '<p>Loading weather data...</p>';
+
+            const geocodingUrl = 'https://geocoding-api.open-meteo.com/v1/search?name=Moradabad&country_code=IN&count=1';
+
+            try {
+                // Geocoding
+                const geoResponse = await fetch(geocodingUrl);
+                if (!geoResponse.ok) {
+                    throw new Error(`Geocoding API error: ${geoResponse.status}`);
+                }
+                const geoData = await geoResponse.json();
+
+                if (!geoData.results || geoData.results.length === 0) {
+                    weatherInfoDiv.innerHTML = '<p>Error: Could not find location data for Moradabad.</p>';
+                    return;
+                }
+
+                const { latitude, longitude } = geoData.results[0];
+
+                // Weather Forecast
+                const forecastUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weather_code,wind_speed_10m&timezone=auto`;
+                const weatherResponse = await fetch(forecastUrl);
+                if (!weatherResponse.ok) {
+                    throw new Error(`Weather API error: ${weatherResponse.status}`);
+                }
+                const weatherData = await weatherResponse.json();
+
+                if (!weatherData.current) {
+                    weatherInfoDiv.innerHTML = '<p>Error: Could not retrieve current weather data.</p>';
+                    return;
+                }
+
+                const { temperature_2m, weather_code, wind_speed_10m } = weatherData.current;
+
+                // WMO Weather interpretation codes (basic set)
+                const weatherDescriptions = {
+                    0: 'Clear sky',
+                    1: 'Mainly clear',
+                    2: 'Partly cloudy',
+                    3: 'Overcast',
+                    45: 'Fog',
+                    48: 'Depositing rime fog',
+                    51: 'Light drizzle',
+                    53: 'Moderate drizzle',
+                    55: 'Dense drizzle',
+                    56: 'Light freezing drizzle',
+                    57: 'Dense freezing drizzle',
+                    61: 'Slight rain',
+                    63: 'Moderate rain',
+                    65: 'Heavy rain',
+                    66: 'Light freezing rain',
+                    67: 'Heavy freezing rain',
+                    71: 'Slight snow fall',
+                    73: 'Moderate snow fall',
+                    75: 'Heavy snow fall',
+                    77: 'Snow grains',
+                    80: 'Slight rain showers',
+                    81: 'Moderate rain showers',
+                    82: 'Violent rain showers',
+                    85: 'Slight snow showers',
+                    86: 'Heavy snow showers',
+                    95: 'Thunderstorm: Slight or moderate',
+                    96: 'Thunderstorm with slight hail',
+                    99: 'Thunderstorm with heavy hail'
+                };
+
+                const condition = weatherDescriptions[weather_code] || 'Unknown condition';
+
+                weatherInfoDiv.innerHTML = `
+                    <p>Temperature: ${temperature_2m} °C</p>
+                    <p>Condition: ${condition}</p>
+                    <p>Wind Speed: ${wind_speed_10m} m/s</p>
+                `;
+
+            } catch (error) {
+                console.error('Weather fetch error:', error);
+                weatherInfoDiv.innerHTML = `<p>Error fetching weather data: ${error.message}. Please try again later.</p>`;
+            }
+        }
+
+        // Call the function when the script loads
+        fetchAndDisplayWeather();
+
+        // Rock Paper Scissors Game Logic
+        const rpsChoices = ['Rock', 'Paper', 'Scissors'];
+        const rockButton = document.getElementById('rock');
+        const paperButton = document.getElementById('paper');
+        const scissorsButton = document.getElementById('scissors');
+        const rpsResultDiv = document.getElementById('rps-result');
+        const rpsChoicesDiv = document.getElementById('rps-choices');
+
+        rockButton.addEventListener('click', () => playGame('Rock'));
+        paperButton.addEventListener('click', () => playGame('Paper'));
+        scissorsButton.addEventListener('click', () => playGame('Scissors'));
+
+        function playGame(playerChoice) {
+            const computerChoice = rpsChoices[Math.floor(Math.random() * rpsChoices.length)];
+            let result = '';
+
+            if (playerChoice === computerChoice) {
+                result = "It's a Tie!";
+            } else if (
+                (playerChoice === 'Rock' && computerChoice === 'Scissors') ||
+                (playerChoice === 'Paper' && computerChoice === 'Rock') ||
+                (playerChoice === 'Scissors' && computerChoice === 'Paper')
+            ) {
+                result = 'Player wins!';
+            } else {
+                result = 'Computer wins!';
+            }
+
+            rpsResultDiv.innerHTML = result;
+            rpsChoicesDiv.innerHTML = `Player chose: ${playerChoice}, Computer chose: ${computerChoice}`;
+        }
+    </script>
+</body>
+</html>
