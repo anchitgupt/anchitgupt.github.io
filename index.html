@@ -1,140 +1,616 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Home | Anchit Gupta</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="main.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- SEO Meta Tags -->
+  <title>Anchit Gupta | Senior Data Engineer</title>
+  <meta name="description"
+    content="Senior Data Engineer with 4+ years of experience specializing in data pipelines and scalable infrastructure. Expert in Python, PySpark, Databricks, AWS, and LangChain.">
+  <meta name="keywords" content="Anchit Gupta, Data Engineer, Python, PySpark, Databricks, AWS, Machine Learning">
+  <meta name="author" content="Anchit Gupta">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Anchit Gupta | Senior Data Engineer">
+  <meta property="og:description"
+    content="Senior Data Engineer specializing in data pipelines and scalable infrastructure.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://anchitgupt.github.io">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-        <a class="navbar-brand" href="#">Home | Anchit Gupta</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="nav navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="https://github.com/anchitgupt">Project</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="/files/Resume_ANCHIT_GUPTA.pdf">CV</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    </br>
-    <!-- body content -->
-    <!--#############################################################################################################################################-->
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-content">
+      <a href="#" class="nav-logo">AG</a>
+      <ul class="nav-links">
+        <li><a href="#about"><span class="number">01.</span> About</a></li>
+        <li><a href="#experience"><span class="number">02.</span> Experience</a></li>
+        <li><a href="#education"><span class="number">03.</span> Education</a></li>
+        <li><a href="#projects"><span class="number">04.</span> Projects</a></li>
+        <li><a href="#publications"><span class="number">05.</span> Publications</a></li>
+        <li><a href="#certifications"><span class="number">06.</span> Certifications</a></li>
+        <li><a href="#contact"><span class="number">07.</span> Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon" id="themeIcon"></i>
+      </button>
+      <a href="mailto:anchitgupt2012@gmail.com" class="nav-cta">
+        <i class="fas fa-envelope"></i> Contact Me
+      </a>
+      <div class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
 
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
     <div class="container">
-        <!--  -->
-        <div class="row">
-            <!-- First column -->
-            <div class="col-md-6">
-                <h1>About</h1>
-                <br>
-                <img src="images/anchit.jpg" class="rounded-circle" title="Anchit looks like this" style="width: 30%; margin-left: 20px; margin-top: 0px; margin-bottom: 5px; float: right;">
-                <p>
-                    You've reached the home page of <strong itemprop="name">Anchit Gupta</strong>. I'm a computer
-                    enthusiast interested
-                    in <span itemprop="knows">Android Programming</span> and <span itemprop="knows">Machine Learning</span>
-                    Added to that I care about humanity, technology, sciences and
-                    physics.
-                </p>
-                <!-- <p>I love online learning and love to do Competitive Programming.</p> -->
-                <p>I've completed my course
-                    <span itemprop="Name">Bachelor of Technology</span> in
-                    <span itemprop="description">Computer Science</span> at
-                    <a href="https://www.mitmoradabad.edu.in/" title="MIT, Moradabad"><span itemprop="provider">MIT,
-                            Moradabad</span></a>
-                    in 2018 with 1st division. I am pursuing
-                    <span itemprop="Name">Masters of Technology</span> in
-                    <span itemprop="description">Computer Science</span> at
-                    <a href="https://www.iiitd.ac.in" title="IIIT Delhi, New Delhi"><span itemprop="provider">IIIT Delhi, New Delhi</span></a>
-                    till 2021.
-                </p>
-                <p>For more information, you can consult <a title="curriculum vitæ for Anchit Gupta" href="files/ANCHIT_GUPTA_MBD.pdf">my
-                        curriculum vitæ</a>.</p>
-            </div>
-            <!-- Second Column -->
-            <div class="col-md-6">
-                <h1>
-                    Contact
-                </h1>
-                <br>
-                <ul class="fa-ul">
-                    <li>
-                        <i class="fa-li fa fa-envelope"></i> <a title="Anchit Gupta" href="mailto:anchit19060@iiitd.ac.in"><span
-                                itemprop="email">anchit19060@iiitd.ac.in</span></a>&nbsp;
-                    </li>
-                        <div itemprop="address">
-                            <span itemprop="addressLocality">
-                                Moradabad<br>
-                            </span>
-                            Uttar Pradesh
-                            <span itemprop="postalCode">
-                                244001
-                            </span>
-                            <br>
-                            <span itemprop="addressRegion">
-                                India
-                            </span>
-                        </div>
-                    </li>
-                </ul>
-                <p>You can also follow me and find out more about my work and personal life on the following sites:</p>
-                <div class="row">
-                    <div class="col-md-10" style="text-align: center;">
-                        <ul class="social list-inline">
-                            <li class="list-inline-item"><a href="https://github.com/anchitgupt" target="_blank" rel="noopener"><i
-                                        class="fa fa-github-square fa-3x" title="GitHub"></i></a></li>
-                            <li class="list-inline-item"><a href="https://www.linkedin.com/in/anchitgupt" target="_blank"
-                                    rel="noopener"><i class="fa fa-linkedin-square fa-3x" title="LinkedIn"></i></a></li>
-                            <li class="list-inline-item"><a href="https://twitter.com/Anchit_Gupt" target="_blank" rel="noopener"><i
-                                        class="fa fa-twitter-square fa-3x" title="Twitter"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+      <div class="hero-content">
+        <p class="hero-greeting">Hi, my name is</p>
+        <h1 class="hero-name gradient-text">Anchit Gupta.</h1>
+        <h2 class="hero-title">I build data-driven solutions.</h2>
+        <p class="hero-description">
+          I'm a <strong>Senior Data Engineer</strong> with 4+ years of experience
+          specializing in building scalable data pipelines and infrastructure.
+          Currently working at <span class="gradient-text">Sevaro</span>,
+          solving real-world problems through data engineering and AI.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fas fa-rocket"></i> View My Work
+          </a>
+          <a href="files/Anchit_Gupta_SCE.pdf" target="_blank" class="btn btn-outline">
+            <i class="fas fa-file-alt"></i> Resume
+          </a>
         </div>
+      </div>
     </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="section-number">01.</span> About Me
+      </h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            Hello! I'm Anchit, a <strong>Senior Data Engineer</strong> specializing in <strong>GenAI and Cloud-Native
+              Analytics</strong>.
+            I enjoy building scalable data platforms and integrating Generative AI solutions to solve complex business
+            problems.
+          </p>
+          <p>
+            With over 4 years of experience, I've worked across the full data lifecycle - from building MDM pipelines
+            for pharmaceutical giants
+            to developing LLaMA-based gaming bots and automating medical document summarization.
+          </p>
+          <p>
+            My background includes an M.Tech in CS from <strong>IIIT Delhi</strong> and deep expertise in the modern
+            data stack.
+            I'm constantly exploring new technologies in the AI/ML space to build more intelligent systems.
+          </p>
+          <p>Here are some technologies I use daily:</p>
+          <ul class="skills-grid">
+            <li class="skill-item">Python & PySpark</li>
+            <li class="skill-item">Databricks & AWS</li>
+            <li class="skill-item">GenAI (LangChain, Llama)</li>
+            <li class="skill-item">Snowflake & dbt</li>
+            <li class="skill-item">Airflow & Docker</li>
+            <li class="skill-item">SQL & NoSQL</li>
+          </ul>
+        </div>
+        <div class="about-image">
+          <img src="images/anchit.jpg" alt="Anchit Gupta">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title fade-in">
+        <span class="section-number">02.</span> Where I've Worked
+      </h2>
+      <div class="experience-timeline">
+        <div class="experience-item fade-in">
+          <p class="experience-date">Oct 2025 — Present</p>
+          <h3 class="experience-role">Senior Data Engineer</h3>
+          <p class="experience-company">@ Sevaro Health</p>
+          <ul class="experience-description">
+            <li>Architected migration to Medallion architecture, reducing technical debt by 20-30%</li>
+            <li>Engineered CI/CD pipelines using GitHub Actions for automated deployments</li>
+            <li>Implemented RBAC policies in Databricks for data security and governance</li>
+            <li>Built data observability framework and monitoring dashboards</li>
+            <li>Spearheaded cloud cost management audits to minimize infrastructure expenses</li>
+          </ul>
+        </div>
+        <div class="experience-item fade-in">
+          <p class="experience-date">Jul 2024 — Oct 2025</p>
+          <h3 class="experience-role">Data Engineer III</h3>
+          <p class="experience-company">@ Junglee Games</p>
+          <ul class="experience-description">
+            <li>Built LangChain-based GenAI summarization agent used across 5 games, saving 3.5 hours per analyst/day
+            </li>
+            <li>Migrated Spark jobs from EMR to Databricks, improving ETL performance by 40% and reducing costs by 30%
+            </li>
+            <li>Developed LLaMA-based Rummy bot for Learn/Practice section, enhancing user onboarding</li>
+            <li>Built MLOps pipelines for A/B testing and dynamic recommendation systems</li>
+          </ul>
+        </div>
+        <div class="experience-item fade-in">
+          <p class="experience-date">Jul 2023 — Jul 2024</p>
+          <h3 class="experience-role">Data Engineer II</h3>
+          <p class="experience-company">@ Junglee Games</p>
+          <ul class="experience-description">
+            <li>Led 3 engineers to develop a centralized alerting and observability framework</li>
+            <li>Designed reusable alerting system with email support, reducing alert development effort by 70%</li>
+            <li>Created freshness and anomaly detection modules, reducing data quality incidents by 50%</li>
+          </ul>
+        </div>
+        <div class="experience-item fade-in">
+          <p class="experience-date">Oct 2022 — Jul 2023</p>
+          <h3 class="experience-role">Data Engineer I</h3>
+          <p class="experience-company">@ Junglee Games</p>
+          <ul class="experience-description">
+            <li>Built self-serve analytics layers for cross-functional teams</li>
+            <li>Enhanced GST/TDS pipelines, reducing turnaround time by 20%</li>
+            <li>Improved KPI dashboards, cutting SLA delays by 80%</li>
+          </ul>
+        </div>
+        <div class="experience-item fade-in">
+          <p class="experience-date">Apr 2022 — Sep 2022</p>
+          <h3 class="experience-role">Associate</h3>
+          <p class="experience-company">@ Axtria</p>
+          <ul class="experience-description">
+            <li>Developed MDM pipelines to unify 50M+ records using NLP, achieving 87% match accuracy</li>
+            <li>Delivered ETL tools and Golden Record logic for pharma client data</li>
+          </ul>
+        </div>
+        <div class="experience-item fade-in">
+          <p class="experience-date">Jul 2021 — Apr 2022</p>
+          <h3 class="experience-role">Data Analyst</h3>
+          <p class="experience-company">@ Axtria</p>
+          <ul class="experience-description">
+            <li>Generated HCP/HCO hierarchies and automated stakeholder notifications</li>
+            <li>Reduced matching algorithm time by 40% through memory optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title fade-in">
+        <span class="section-number">03.</span> Education
+      </h2>
+      <div class="education-grid">
+        <div class="education-card fade-in">
+          <p class="education-degree">Master of Technology</p>
+          <h3 class="education-institution">IIIT Delhi</h3>
+          <p class="education-period">2019 — 2021</p>
+          <p class="education-details">
+            Specialized in Computer Science with focus on Natural Language Processing
+            and Deep Learning. Worked on research projects involving semantic analysis
+            and information retrieval.
+          </p>
+          <span class="education-highlight">
+            <i class="fas fa-trophy"></i> GATE Score: 98.14
+          </span>
+        </div>
+        <div class="education-card fade-in">
+          <p class="education-degree">Bachelor of Technology</p>
+          <h3 class="education-institution">Moradabad Institute of Technology (AKTU)</h3>
+          <p class="education-period">2014 — 2018</p>
+          <p class="education-details">
+            Completed B.Tech in Computer Science with First Division.
+            Developed foundational skills in programming, Android development,
+            and machine learning.
+          </p>
+          <span class="education-highlight">
+            <i class="fas fa-medal"></i> First Division
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title fade-in">
+        <span class="section-number">04.</span> Things I've Built
+      </h2>
+      <div class="projects-grid">
+        <article class="project-card fade-in">
+          <div class="project-header">
+            <span class="project-icon">🤖</span>
+            <div class="project-links">
+              <a href="#" class="btn-link" title="Proprietary Project">
+                <i class="fas fa-building"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">GenAI Medical Summarization</h3>
+          <p class="project-description">
+            Automated system for summarizing complex medical documents using Generative AI.
+            Streamlines information extraction for healthcare professionals to improve patient care.
+          </p>
+          <div class="project-tech">
+            <span>LLMs</span>
+            <span>LangChain</span>
+            <span>Python</span>
+            <span>Healthcare</span>
+          </div>
+        </article>
+
+        <article class="project-card fade-in">
+          <div class="project-header">
+            <span class="project-icon">🎮</span>
+            <div class="project-links">
+              <a href="#" class="btn-link" title="Proprietary Project">
+                <i class="fas fa-building"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">LLaMA Gaming Bot</h3>
+          <p class="project-description">
+            Integrated LLaMA models into gaming environments to create intelligent,
+            responsive bots that enhance player engagement at Junglee Games.
+          </p>
+          <div class="project-tech">
+            <span>GenAI</span>
+            <span>LLaMA</span>
+            <span>Game Dev</span>
+            <span>Python</span>
+          </div>
+        </article>
+
+        <article class="project-card fade-in">
+          <div class="project-header">
+            <span class="project-icon">💊</span>
+            <div class="project-links">
+              <a href="#" class="btn-link" title="Proprietary Project">
+                <i class="fas fa-building"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Pharma MDM Pipeline</h3>
+          <p class="project-description">
+            Enterprise Master Data Management pipeline processing 50M+ records.
+            Implemented fuzzy matching and NLP for high-accuracy entity resolution.
+          </p>
+          <div class="project-tech">
+            <span>Big Data</span>
+            <span>NLP</span>
+            <span>Spark</span>
+            <span>Axtria</span>
+          </div>
+        </article>
+
+        <article class="project-card fade-in">
+          <div class="project-header">
+            <span class="project-icon">📚</span>
+            <div class="project-links">
+              <a href="https://github.com/anchitgupt/wikipedia-sematics" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Wikipedia Citation Verifier</h3>
+          <p class="project-description">
+            NLP-based Chrome Extension to find semantically similar sentences in
+            cited documents for Wikipedia citations using deep learning embeddings.
+          </p>
+          <div class="project-tech">
+            <span>Python</span>
+            <span>Deep Learning</span>
+            <span>Chrome Ext</span>
+          </div>
+        </article>
+
+        <article class="project-card fade-in">
+          <div class="project-header">
+            <span class="project-icon">😄</span>
+            <div class="project-links">
+              <a href="https://github.com/anchitgupt" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Humour Detection</h3>
+          <p class="project-description">
+            Text classification system to detect humor using deep learning embeddings,
+            optimized for memory-sensitive mobile devices with model size <10 MB. </p>
+              <div class="project-tech">
+                <span>TensorFlow</span>
+                <span>NLP</span>
+                <span>Mobile AI</span>
+              </div>
+        </article>
+
+        <article class="project-card fade-in">
+          <div class="project-header">
+            <span class="project-icon">🩸</span>
+            <div class="project-links">
+              <a href="https://github.com/anchitgupt" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Blood Bank Finder</h3>
+          <p class="project-description">
+            Android application to help users locate blood banks across India.
+            Features real-time availability and location-based search.
+          </p>
+          <div class="project-tech">
+            <span>Android</span>
+            <span>Java</span>
+            <span>Firebase</span>
+            <span>Maps API</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications Section -->
+  <section id="publications">
+    <div class="container">
+      <h2 class="section-title fade-in">
+        <span class="section-number">05.</span> Publications
+      </h2>
+      <p class="section-subtitle fade-in">Technical articles on Data Engineering, Apache Spark, and AI/ML</p>
+      <div class="publications-grid">
+        <article class="publication-card fade-in">
+          <div class="publication-meta">
+            <span class="publication-date">Jan 2025</span>
+            <span class="publication-platform"><i class="fab fa-medium"></i> Medium</span>
+          </div>
+          <h3 class="publication-title">
+            <a href="https://medium.com/@anchitgupt2012/whats-new-in-apache-spark-4-1-for-developers-17931f6920f0"
+              target="_blank" rel="noopener">
+              What's New in Apache Spark 4.1 for Developers?
+            </a>
+          </h3>
+          <p class="publication-excerpt">Apache Spark 4.1 is packed with features designed to make data engineering
+            faster, more flexible, and more efficient...</p>
+          <div class="publication-tags">
+            <span>Spark</span>
+            <span>Big Data</span>
+          </div>
+        </article>
+        <article class="publication-card fade-in">
+          <div class="publication-meta">
+            <span class="publication-date">Jan 2025</span>
+            <span class="publication-platform"><i class="fab fa-medium"></i> Medium</span>
+          </div>
+          <h3 class="publication-title">
+            <a href="https://medium.com/@anchitgupt2012/breaking-into-data-engineering-the-complete-roadmap-for-2026-c73e16b51e0d"
+              target="_blank" rel="noopener">
+              Breaking Into Data Engineering: The Complete Roadmap for 2026
+            </a>
+          </h3>
+          <p class="publication-excerpt">Data engineering is one of the most in-demand roles in tech. With the rise of
+            GenAI and real-time analytics, the role is evolving...</p>
+          <div class="publication-tags">
+            <span>Career</span>
+            <span>Data Engineering</span>
+          </div>
+        </article>
+        <article class="publication-card fade-in">
+          <div class="publication-meta">
+            <span class="publication-date">Jan 2025</span>
+            <span class="publication-platform"><i class="fab fa-medium"></i> Medium</span>
+          </div>
+          <h3 class="publication-title">
+            <a href="https://medium.com/@anchitgupt2012/how-pro-handles-un-strucutred-data-in-databricks-atleast-475a892b1ae4"
+              target="_blank" rel="noopener">
+              How Pro Handles Unstructured Data in Databricks
+            </a>
+          </h3>
+          <p class="publication-excerpt">The real power of a Lakehouse comes from how you handle unstructured data. In
+            this article, we explore best practices...</p>
+          <div class="publication-tags">
+            <span>Databricks</span>
+            <span>Lakehouse</span>
+          </div>
+        </article>
+        <article class="publication-card fade-in">
+          <div class="publication-meta">
+            <span class="publication-date">Dec 2024</span>
+            <span class="publication-platform"><i class="fab fa-medium"></i> Medium</span>
+          </div>
+          <h3 class="publication-title">
+            <a href="https://medium.com/@anchitgupt2012/level-up-your-etl-code-with-arrow-in-pyspark-d2b3c75a4087"
+              target="_blank" rel="noopener">
+              Level Up Your ETL Code with Arrow in PySpark
+            </a>
+          </h3>
+          <p class="publication-excerpt">Apache Arrow is a cross-language platform for in-memory data that specifies a
+            standardized column-oriented format...</p>
+          <div class="publication-tags">
+            <span>PySpark</span>
+            <span>Arrow</span>
+          </div>
+        </article>
+        <article class="publication-card fade-in">
+          <div class="publication-meta">
+            <span class="publication-date">Nov 2024</span>
+            <span class="publication-platform"><i class="fab fa-medium"></i> Medium</span>
+          </div>
+          <h3 class="publication-title">
+            <a href="https://medium.com/@anchitgupt2012/what-developers-need-to-know-about-apache-spark-4-0-be0350d757d5"
+              target="_blank" rel="noopener">
+              What Developers Need to Know About Apache Spark 4.0
+            </a>
+          </h3>
+          <p class="publication-excerpt">Apache Spark 4.0 is on the horizon, bringing major changes to the world of big
+            data processing...</p>
+          <div class="publication-tags">
+            <span>Spark</span>
+            <span>Big Data</span>
+          </div>
+        </article>
+        <article class="publication-card fade-in">
+          <div class="publication-meta">
+            <span class="publication-date">Nov 2024</span>
+            <span class="publication-platform"><i class="fab fa-medium"></i> Medium</span>
+          </div>
+          <h3 class="publication-title">
+            <a href="https://medium.com/@anchitgupt2012/how-to-build-a-data-engineering-portfolio-that-actually-gets-you-hired-702f30b8d5a2"
+              target="_blank" rel="noopener">
+              How to Build a Data Engineering Portfolio That Gets You Hired
+            </a>
+          </h3>
+          <p class="publication-excerpt">Building a data engineering portfolio is one of the most important things you
+            can do to stand out in a crowded job market...</p>
+          <div class="publication-tags">
+            <span>Career</span>
+            <span>Portfolio</span>
+          </div>
+        </article>
+      </div>
+      <div class="publications-cta fade-in">
+        <a href="https://medium.com/@anchitgupt2012" target="_blank" rel="noopener" class="btn btn-outline">
+          <i class="fab fa-medium"></i> View All Articles on Medium
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications">
+    <div class="container">
+      <h2 class="section-title fade-in">
+        <span class="section-number">06.</span> Certifications
+      </h2>
+      <div class="certifications-grid">
+        <div class="cert-card cert-highlight fade-in">
+          <span class="cert-icon">🎓</span>
+          <div class="cert-info">
+            <h4>GATE 2019</h4>
+            <p class="cert-issuer">Score: 98.14 Percentile</p>
+          </div>
+        </div>
+        <div class="cert-card fade-in">
+          <span class="cert-icon">🔷</span>
+          <div class="cert-info">
+            <h4>Databricks Fundamentals Accreditation</h4>
+            <p class="cert-issuer">Databricks</p>
+          </div>
+        </div>
+        <div class="cert-card fade-in">
+          <span class="cert-icon">🤖</span>
+          <div class="cert-info">
+            <h4>LangChain for LLM Application Development</h4>
+            <p class="cert-issuer">DeepLearning.AI</p>
+          </div>
+        </div>
+        <div class="cert-card fade-in">
+          <span class="cert-icon">🔧</span>
+          <div class="cert-info">
+            <h4>Apache Airflow Fundamentals</h4>
+            <p class="cert-issuer">Astronomer</p>
+          </div>
+        </div>
+        <div class="cert-card fade-in">
+          <span class="cert-icon">☁️</span>
+          <div class="cert-info">
+            <h4>Azure Databricks & Spark Core</h4>
+            <p class="cert-issuer">Udemy</p>
+          </div>
+        </div>
+        <div class="cert-card fade-in">
+          <span class="cert-icon">📊</span>
+          <div class="cert-info">
+            <h4>MTA Database Fundamentals</h4>
+            <p class="cert-issuer">Microsoft</p>
+          </div>
+        </div>
+        <div class="cert-card fade-in">
+          <span class="cert-icon">☕</span>
+          <div class="cert-info">
+            <h4>J2SE Java Certification</h4>
+            <p class="cert-issuer">Oracle</p>
+          </div>
+        </div>
+        <div class="cert-card fade-in">
+          <span class="cert-icon">📱</span>
+          <div class="cert-info">
+            <h4>Android App Development</h4>
+            <p class="cert-issuer">Google</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="contact-content">
+        <p class="contact-subtitle">06. What's Next?</p>
+        <h2 class="contact-title">Get In Touch</h2>
+        <p class="contact-description">
+          I'm currently open to new opportunities and exciting projects.
+          Whether you have a question or just want to say hi, my inbox is always open.
+          I'll try my best to get back to you!
+        </p>
+        <div class="contact-cta">
+          <a href="mailto:anchit19060@iiitd.ac.in" class="btn btn-primary">
+            <i class="fas fa-envelope"></i> Say Hello
+          </a>
+        </div>
+        <div class="social-links">
+          <a href="https://github.com/anchitgupt" target="_blank" rel="noopener" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/anchitgupt" target="_blank" rel="noopener" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://twitter.com/Anchit_Gupt" target="_blank" rel="noopener" title="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p class="footer-text">
+      Designed & Built by Anchit Gupta · 2026
+    </p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
 </body>
-<!--###############################################################################################################################-->
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-<hr>
-<footer class="page-footer" lang="en-ca">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                Last modified: 30 May, 2020 10:41 IST</div>
-            <div class="col-md-4">
-                <!--   -->
-            </div>
-            <div class="col-md-4">
-                <a href="credits.html">Credits</a> •
-                <a title="Anchit Gupta on GitHub" href="https://github.com/anchitgupt/anchitgupt.github.io" target="_blank" rel="noopener">Source</a>
-            </div>
-        </div>
-    </div>
-</footer>
 
 </html>
