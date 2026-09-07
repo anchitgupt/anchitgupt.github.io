@@ -12,6 +12,13 @@
   <meta name="keywords"
     content="Anchit Gupta, Data Engineer, PySpark, Databricks, Delta Lake, Medallion, MLOps, MLflow, RAG, LangChain, AWS, Snowflake, dbt, Airflow, OpenMetadata">
   <meta name="author" content="Anchit Gupta">
+  <link rel="canonical" href="https://anchitgupt.github.io/">
+  <script>
+    try {
+      const theme = localStorage.getItem("theme");
+      if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
+    } catch (_) { /* Storage is optional. */ }
+  </script>
 
   <meta property="og:title" content="Anchit Gupta — Senior Data Engineer">
   <meta property="og:description"
@@ -39,9 +46,11 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#top">Skip to content</a>
+  <p class="sr-only" id="actionStatus" role="status" aria-live="polite"></p>
 
   <!-- ══ BOOT SEQUENCE ══════════════════════════════════════════ -->
-  <div class="boot" id="boot">
+  <div class="boot" id="boot" aria-hidden="true">
     <div class="boot-inner">
       <div class="boot-mark">AG</div>
       <div class="boot-log" id="bootLog"></div>
@@ -72,7 +81,7 @@
         <a href="#impact"><em>04</em> impact</a>
         <a href="#projects"><em>05</em> projects</a>
         <a href="#writing"><em>06</em> writing</a>
-        <a href="#contact"><em>07</em> contact</a>
+        <a href="#contact"><em>08</em> contact</a>
       </nav>
 
       <div class="nav-tools">
@@ -82,7 +91,7 @@
         <button class="icon-btn" id="themeToggle" aria-label="Toggle colour theme">
           <i class="fas fa-circle-half-stroke"></i>
         </button>
-        <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+        <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
           <span></span><span></span>
         </button>
       </div>
@@ -105,7 +114,7 @@
     </ul>
   </aside>
 
-  <main id="top">
+  <main id="top" tabindex="-1">
 
     <!-- ══ HERO ═════════════════════════════════════════════════ -->
     <section class="hero">
@@ -172,23 +181,23 @@
       <div class="wrap">
         <div class="stats" id="stats">
           <div class="stat">
-            <b class="num" data-to="5" data-suffix="+">0</b>
+            <b class="num" data-to="5" data-suffix="+">5+</b>
             <span>years shipping</span>
           </div>
           <div class="stat">
-            <b class="num" data-to="50" data-suffix="M+">0</b>
+            <b class="num" data-to="50" data-suffix="M+">50M+</b>
             <span>records unified</span>
           </div>
           <div class="stat">
-            <b class="num" data-to="40" data-suffix="%">0</b>
+            <b class="num" data-to="40" data-suffix="%">40%</b>
             <span>faster ETL</span>
           </div>
           <div class="stat">
-            <b class="num" id="statPosts" data-to="10" data-suffix="">0</b>
+            <b class="num" id="statPosts" data-to="16" data-suffix="">16</b>
             <span>articles published</span>
           </div>
           <div class="stat">
-            <b class="num" data-to="8" data-suffix="">0</b>
+            <b class="num" data-to="8" data-suffix="">8</b>
             <span>certifications</span>
           </div>
         </div>
@@ -517,32 +526,32 @@
 
         <div class="metrics" id="metrics">
           <div class="metric reveal" data-value="40">
-            <div class="metric-top"><span class="metric-k">ETL performance</span><span class="metric-v"><b class="num" data-to="40" data-suffix="%">0</b><i class="up">▲</i></span></div>
+            <div class="metric-top"><span class="metric-k">ETL performance</span><span class="metric-v"><b class="num" data-to="40" data-suffix="%">40%</b><i class="up">▲</i></span></div>
             <div class="meter"><i></i></div>
             <p>EMR → Databricks migration of production Spark workloads</p>
           </div>
           <div class="metric reveal" data-value="30">
-            <div class="metric-top"><span class="metric-k">Compute cost</span><span class="metric-v"><b class="num" data-to="30" data-suffix="%">0</b><i class="down">▼</i></span></div>
+            <div class="metric-top"><span class="metric-k">Compute cost</span><span class="metric-v"><b class="num" data-to="30" data-suffix="%">30%</b><i class="down">▼</i></span></div>
             <div class="meter"><i></i></div>
             <p>Right-sized clusters, job consolidation and cloud cost audits</p>
           </div>
           <div class="metric reveal" data-value="50">
-            <div class="metric-top"><span class="metric-k">Data-quality incidents</span><span class="metric-v"><b class="num" data-to="50" data-suffix="%">0</b><i class="down">▼</i></span></div>
+            <div class="metric-top"><span class="metric-k">Data-quality incidents</span><span class="metric-v"><b class="num" data-to="50" data-suffix="%">50%</b><i class="down">▼</i></span></div>
             <div class="meter"><i></i></div>
             <p>Freshness + anomaly detection modules shipped platform-wide</p>
           </div>
           <div class="metric reveal" data-value="70">
-            <div class="metric-top"><span class="metric-k">Alert dev effort</span><span class="metric-v"><b class="num" data-to="70" data-suffix="%">0</b><i class="down">▼</i></span></div>
+            <div class="metric-top"><span class="metric-k">Alert dev effort</span><span class="metric-v"><b class="num" data-to="70" data-suffix="%">70%</b><i class="down">▼</i></span></div>
             <div class="meter"><i></i></div>
             <p>Reusable, config-driven alerting framework with email delivery</p>
           </div>
           <div class="metric reveal" data-value="80">
-            <div class="metric-top"><span class="metric-k">SLA delays</span><span class="metric-v"><b class="num" data-to="80" data-suffix="%">0</b><i class="down">▼</i></span></div>
+            <div class="metric-top"><span class="metric-k">SLA delays</span><span class="metric-v"><b class="num" data-to="80" data-suffix="%">80%</b><i class="down">▼</i></span></div>
             <div class="meter"><i></i></div>
             <p>Rebuilt KPI dashboards and the pipelines feeding them</p>
           </div>
           <div class="metric reveal" data-value="87">
-            <div class="metric-top"><span class="metric-k">Entity match accuracy</span><span class="metric-v"><b class="num" data-to="87" data-suffix="%">0</b><i class="up">▲</i></span></div>
+            <div class="metric-top"><span class="metric-k">Entity match accuracy</span><span class="metric-v"><b class="num" data-to="87" data-suffix="%">87%</b><i class="up">▲</i></span></div>
             <div class="meter"><i></i></div>
             <p>NLP-driven master data management across 50M+ records</p>
           </div>
@@ -567,12 +576,12 @@
           <span class="sec-meta">github.com/anchitgupt · /ez-biz</span>
         </header>
 
-        <div class="filters reveal" role="tablist" aria-label="Filter projects" data-for="projectGrid" data-empty="projEmpty">
-          <button class="chip on" role="tab" aria-selected="true" data-f="all">all</button>
-          <button class="chip" role="tab" aria-selected="false" data-f="lake">lakehouse</button>
-          <button class="chip" role="tab" aria-selected="false" data-f="mlops">mlops</button>
-          <button class="chip" role="tab" aria-selected="false" data-f="ai">ai / llm</button>
-          <button class="chip" role="tab" aria-selected="false" data-f="tools">tools</button>
+        <div class="filters reveal" role="group" aria-label="Filter projects" data-for="projectGrid" data-empty="projEmpty">
+          <button class="chip on" aria-pressed="true" data-f="all">all</button>
+          <button class="chip" aria-pressed="false" data-f="lake">lakehouse</button>
+          <button class="chip" aria-pressed="false" data-f="mlops">mlops</button>
+          <button class="chip" aria-pressed="false" data-f="ai">ai / llm</button>
+          <button class="chip" aria-pressed="false" data-f="tools">tools</button>
         </div>
 
         <div class="projects" id="projectGrid">
@@ -812,12 +821,12 @@
           production, where MLOps meets data engineering, and what AI genuinely changes about the job.
         </p>
 
-        <div class="filters reveal" role="tablist" aria-label="Filter articles" data-for="postGrid" data-empty="postEmpty">
-          <button class="chip on" role="tab" aria-selected="true" data-f="all">all</button>
-          <button class="chip" role="tab" aria-selected="false" data-f="lake">medallion</button>
-          <button class="chip" role="tab" aria-selected="false" data-f="mlops">mlops</button>
-          <button class="chip" role="tab" aria-selected="false" data-f="ai">ai</button>
-          <button class="chip" role="tab" aria-selected="false" data-f="model">modelling</button>
+        <div class="filters reveal" role="group" aria-label="Filter articles" data-for="postGrid" data-empty="postEmpty">
+          <button class="chip on" aria-pressed="true" data-f="all">all</button>
+          <button class="chip" aria-pressed="false" data-f="lake">medallion</button>
+          <button class="chip" aria-pressed="false" data-f="mlops">mlops</button>
+          <button class="chip" aria-pressed="false" data-f="ai">ai</button>
+          <button class="chip" aria-pressed="false" data-f="model">modelling</button>
         </div>
 
         <div class="posts" id="postGrid">
@@ -1063,10 +1072,11 @@
       <div class="palette-input">
         <i class="fas fa-magnifying-glass"></i>
         <input id="paletteInput" type="text" placeholder="Jump to a section, copy my email, open the terminal…"
-          autocomplete="off" spellcheck="false" aria-label="Search commands">
-        <kbd>esc</kbd>
+          autocomplete="off" spellcheck="false" aria-label="Search commands"
+          role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="paletteList">
+        <button class="palette-close" id="paletteClose" aria-label="Close command palette">esc</button>
       </div>
-      <ul class="palette-list" id="paletteList" role="listbox"></ul>
+      <ul class="palette-list" id="paletteList" role="listbox" aria-label="Commands"></ul>
       <div class="palette-foot">
         <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
         <span><kbd>↵</kbd> select</span>
@@ -1076,7 +1086,7 @@
   </div>
 
   <!-- ══ TERMINAL ═══════════════════════════════════════════════ -->
-  <div class="term" id="term" hidden>
+  <div class="term" id="term" role="dialog" aria-label="Interactive terminal" hidden>
     <div class="term-head" id="termHead">
       <span class="dag-dots"><i data-close-term></i><i></i><i></i></span>
       <span class="term-title">anchit@portfolio — zsh</span>

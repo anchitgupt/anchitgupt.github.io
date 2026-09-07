@@ -39,7 +39,7 @@ Never write a raw hex in component CSS — always use a token.
 | `--line-2` | `rgba(232,240,225,.18)` | Hover borders, DAG strokes |
 | `--text` | `#e9efe6` | Headings, emphasis |
 | `--muted` | `#8e968c` | Body copy |
-| `--dim` | `#626a5f` | Metadata, captions |
+| `--dim` | `#949d8e` | Metadata, captions |
 | `--signal` | `#c9f24e` | THE accent — acid lime |
 | `--signal-2` | `#a8d434` | Gradient partner for signal |
 | `--signal-soft` | `rgba(201,242,78,.13)` | Chip / tint backgrounds |
@@ -144,7 +144,7 @@ Hover: cards lift `translateY(-4px/-5px)` and brighten their border to
 | `--ease` | `cubic-bezier(.22,1,.36,1)` | Default |
 | `--ease-io` | `cubic-bezier(.65,0,.35,1)` | Ambient loops |
 
-- **Entrances**: `.reveal` + IntersectionObserver, staggered with `--d`
+- **Entrances**: `.motion-ready .reveal` + IntersectionObserver, staggered with `--d`
   (90ms steps). Hero reveals fire on boot completion, not on scroll.
 - **Scramble**: section titles scramble once on entry; the hero role cycles
   through `data-words` every 3.2s.
@@ -178,7 +178,7 @@ counters jump to final values).
   by JS on entry.
 - **Terminal / palette**: opaque `--ink-2` / `--surface`, `dag-dots` header,
   auto-focused input with its focus ring suppressed.
-- **Filter chips** (`.filters` > `.chip`): mono pills; active chip is a solid
+- **Filter chips** (`.filters` > `.chip`): grouped toggle buttons with `aria-pressed`, mono pills; active chip is a solid
   `--signal` fill. The bar declares `data-for` (grid id) and `data-empty`
   (empty-state id); each card carries a space-separated `data-f` so one card
   can answer to several filters. Cards stay in the HTML — JS only toggles
@@ -197,8 +197,9 @@ counters jump to final values).
   are auto-focused and sole controls in their dialog.
 - Decorative layers carry `aria-hidden="true"`; icon-only buttons carry
   `aria-label`; the DAG `<svg>` has `role="img"` and a real description.
-- The boot overlay is guarded by `<noscript>` and a 4s failsafe so it can never
-  trap a visitor.
+- The boot overlay is hidden by default and enabled only when its script runs,
+  with a 4s failsafe. Content and final metric values are readable without the
+  script; filter controls are shown only after initialization.
 - Keyboard: `⌘/Ctrl+K` palette, `/` palette, `` ` `` terminal, `Esc` closes,
   arrows navigate the palette list.
 

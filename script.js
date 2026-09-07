@@ -20,6 +20,7 @@
 
   const setTheme = t => {
     root.setAttribute('data-theme', t);
+    $('#themeToggle')?.setAttribute('aria-label', `Switch to ${t === 'dark' ? 'light' : 'dark'} theme`);
     try { localStorage.setItem('theme', t); } catch (e) { /* private mode */ }
   };
 
@@ -28,9 +29,10 @@
 
   try {
     const saved = localStorage.getItem('theme');
-    if (saved) setTheme(saved);
+    if (saved === 'light' || saved === 'dark') setTheme(saved);
   } catch (e) { /* ignore */ }
 
+  setTheme(root.getAttribute('data-theme') || 'dark');
   $('#themeToggle')?.addEventListener('click', toggleTheme);
 
   /* ── BOOT SEQUENCE ───────────────────────────────────────── */
@@ -63,6 +65,7 @@
     if (seen || reduced || !boot) { endBoot(); return; }
 
     try { sessionStorage.setItem('booted', '1'); } catch (e) { /* ignore */ }
+    boot.classList.add('active');
     document.body.classList.add('locked');
 
     let i = 0;
@@ -415,7 +418,7 @@
       $$('.chip', bar).forEach(c => {
         const on = c === chip;
         c.classList.toggle('on', on);
-        c.setAttribute('aria-selected', String(on));
+        c.setAttribute('aria-pressed', String(on));
       });
 
       let shown = 0;
@@ -455,7 +458,12 @@
     for (const s of sections) {
       if (s.getBoundingClientRect().top <= innerHeight * 0.35) current = s.id;
     }
-    navLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + current));
+    navLinks.forEach(a => {
+      const active = a.getAttribute('href') === '#' + current;
+      a.classList.toggle('on', active);
+      if (active) a.setAttribute('aria-current', 'location');
+      else a.removeAttribute('aria-current');
+    });
     railItems.forEach(li => li.classList.toggle('on', li.dataset.target === current));
 
     ticking = false;
@@ -480,11 +488,13 @@
     const open = links.classList.toggle('open');
     burger.classList.toggle('on', open);
     burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   });
   navLinks.forEach(a => a.addEventListener('click', () => {
     links.classList.remove('open');
     burger?.classList.remove('on');
     burger?.setAttribute('aria-expanded', 'false');
+    burger?.setAttribute('aria-label', 'Open menu');
   }));
 
   /* ── SPOTLIGHT · MAGNETIC · CARD GLOW ────────────────────── */
@@ -529,6 +539,7 @@
   async function copyEmail(btn) {
     try {
       await navigator.clipboard.writeText(EMAIL);
+      $('#actionStatus').textContent = 'Email address copied to clipboard.';
       if (!btn) return true;
       const span = $('span', btn), icon = $('i', btn), was = span.textContent;
       span.textContent = 'Copied to clipboard';
@@ -536,6 +547,8 @@
       setTimeout(() => { span.textContent = was; icon.className = 'fas fa-copy'; }, 1900);
       return true;
     } catch (e) {
+      $('#actionStatus').textContent = `Could not copy automatically. Email: ${EMAIL}`;
+      if (btn) $('span', btn).textContent = 'Select address above to copy';
       return false;
     }
   }
@@ -572,7 +585,7 @@
 
     { g: 'Elsewhere', n: 'GitHub',   i: 'fa-github',   b: 1, h: '@anchitgupt',      run: open('https://github.com/anchitgupt') },
     { g: 'Elsewhere', n: 'LinkedIn', i: 'fa-linkedin', b: 1, h: '/in/anchitgupt',   run: open('https://www.linkedin.com/in/anchitgupt') },
-    { g: 'Elsewhere', n: 'Medium',   i: 'fa-medium',   b: 1, h: '6 articles',       run: open('https://medium.com/@anchitgupt2012') },
+    { g: 'Elsewhere', n: 'Medium',   i: 'fa-medium',   b: 1, h: 'articles',         run: open('https://medium.com/@anchitgupt') },
     { g: 'Elsewhere', n: 'Twitter',  i: 'fa-x-twitter', b: 1, h: '@Anchit_Gupt',    run: open('https://twitter.com/Anchit_Gupt') }
   ];
 
@@ -584,6 +597,7 @@
 
     palItems = hits;
     palSel = 0;
+    palInput.removeAttribute('aria-activedescendant');
 
     if (!hits.length) {
       palList.innerHTML = `<li class="pal-empty">no match for “${esc(q)}”</li>`;
@@ -592,20 +606,43 @@
 
     let html = '', group = '';
     hits.forEach((c, i) => {
-      if (c.g !== group) { group = c.g; html += `<li class="pal-group">${group}</li>`; }
-      html += `<li class="pal-item${i === 0 ? ' sel' : ''}" role="option" data-i="${i}">
+      if (c.g !== group) { group = c.g; html += `<li class="pal-group" role="presentation">${group}</li>`; }
+      html += `<li class="pal-item${i === 0 ? ' sel' : ''}" role="option" id="pal-option-${i}" aria-selected="${i === 0}" data-i="${i}">
         <i class="ico ${c.b ? 'fab' : 'fas'} ${c.i}"></i>
         <span class="nm">${esc(c.n)}</span>
         <span class="hint">${esc(c.h)}</span></li>`;
     });
     palList.innerHTML = html;
+    syncSelection();
+  }
+
+  function syncSelection() {
+    $$('.pal-item', palList).forEach((node, i) => {
+      node.classList.toggle('sel', i === palSel);
+      node.setAttribute('aria-selected', String(i === palSel));
+      if (i === palSel) palInput.setAttribute('aria-activedescendant', node.id);
+    });
+  }
+
+  // Preserve any pre-existing inert state while a modal is open.
+  const backgroundState = new Map();
+  function lockBackground() {
+    [...document.body.children].forEach(el => {
+      if (el === pal || el.id === 'actionStatus' || el.tagName === 'SCRIPT') return;
+      backgroundState.set(el, el.inert);
+      el.inert = true;
+    });
+  }
+  function unlockBackground() {
+    backgroundState.forEach((wasInert, el) => { el.inert = wasInert; });
+    backgroundState.clear();
   }
 
   function moveSel(d) {
     const nodes = $$('.pal-item', palList);
     if (!nodes.length) return;
     palSel = (palSel + d + nodes.length) % nodes.length;
-    nodes.forEach((n, i) => n.classList.toggle('sel', i === palSel));
+    syncSelection();
     nodes[palSel].scrollIntoView({ block: 'nearest' });
   }
 
@@ -613,6 +650,8 @@
     if (!pal.hidden) return;
     lastFocus = document.activeElement;
     pal.hidden = false;
+    lockBackground();
+    palInput.setAttribute("aria-expanded", "true");
     document.body.classList.add('locked');
     palInput.value = '';
     renderPalette();
@@ -622,6 +661,8 @@
   function closePalette() {
     if (pal.hidden) return;
     pal.hidden = true;
+    unlockBackground();
+    palInput.setAttribute("aria-expanded", "false");
     document.body.classList.remove('locked');
     lastFocus?.focus?.();
   }
@@ -636,9 +677,10 @@
     const li = e.target.closest('.pal-item');
     if (!li) return;
     palSel = +li.dataset.i;
-    $$('.pal-item', palList).forEach((n, i) => n.classList.toggle('sel', i === palSel));
+    syncSelection();
   });
 
+  $('#paletteClose')?.addEventListener('click', closePalette);
   $('.palette-scrim')?.addEventListener('click', closePalette);
   $('#paletteTrigger')?.addEventListener('click', openPalette);
   $('#heroPalette')?.addEventListener('click', openPalette);
@@ -648,6 +690,7 @@
   const term = $('#term');
   const termBody = $('#termBody');
   const termInput = $('#termInput');
+  let termLastFocus = null;
   const cmdHistory = [];
   let hIdx = -1;
 
@@ -789,13 +832,14 @@ medium    <a href="https://medium.com/@anchitgupt" target="_blank" rel="noopener
     hIdx = cmdHistory.length;
 
     const key = cmd.split(/\s+/)[0].toLowerCase();
-    const fn = CMDS[key];
+    const fn = Object.hasOwn(CMDS, key) ? CMDS[key] : null;
     termPrint(fn ? fn() : `<span class="warn">zsh: command not found: ${esc(key)}</span>\ntry <span class="key">help</span>`);
     termBody.scrollTop = termBody.scrollHeight;
   }
 
   function openTerm() {
     if (!term || !term.hidden) return;
+    termLastFocus = document.activeElement;
     term.hidden = false;
     if (!termBody.children.length) termPrint(BANNER);
     termInput.focus();
@@ -804,6 +848,7 @@ medium    <a href="https://medium.com/@anchitgupt" target="_blank" rel="noopener
   function closeTerm() {
     if (!term) return;
     term.hidden = true;
+    termLastFocus?.focus?.();
   }
 
   $('#termForm')?.addEventListener('submit', e => {
@@ -865,12 +910,17 @@ medium    <a href="https://medium.com/@anchitgupt" target="_blank" rel="noopener
     if (e.key === 'Escape') {
       if (!pal.hidden) { closePalette(); return; }
       if (term && !term.hidden) { closeTerm(); return; }
+      if (links.classList.contains('open')) { burger.click(); burger.focus(); return; }
     }
 
     if (!pal.hidden) {
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        (document.activeElement === palInput ? $('#paletteClose') : palInput).focus();
+      }
       if (e.key === 'ArrowDown') { e.preventDefault(); moveSel(1); }
       if (e.key === 'ArrowUp')   { e.preventDefault(); moveSel(-1); }
-      if (e.key === 'Enter')     { e.preventDefault(); palItems[palSel]?.run(); }
+      if (e.key === 'Enter' && document.activeElement === palInput) { e.preventDefault(); palItems[palSel]?.run(); }
       return;
     }
 
@@ -892,10 +942,14 @@ medium    <a href="https://medium.com/@anchitgupt" target="_blank" rel="noopener
       const t = id && document.getElementById(id);
       if (!t) return;
       e.preventDefault();
+      history.pushState(null, '', '#' + id);
+      if (!t.hasAttribute('tabindex')) t.setAttribute('tabindex', '-1');
+      t.focus({ preventScroll: true });
       t.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
     });
   });
 
+  root.classList.add('motion-ready');
   runBoot();
 
   console.log(
