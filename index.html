@@ -1,615 +1,1094 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="color-scheme" content="dark light">
 
-  <!-- SEO Meta Tags -->
-  <title>Anchit Gupta | Senior Data Engineer</title>
+  <title>Anchit Gupta — Senior Data Engineer</title>
   <meta name="description"
-    content="Senior Data Engineer with 4+ years of experience specializing in data pipelines and scalable infrastructure. Expert in Python, PySpark, Databricks, AWS, and LangChain.">
-  <meta name="keywords" content="Anchit Gupta, Data Engineer, Python, PySpark, Databricks, AWS, Machine Learning">
+    content="Senior Data Engineer, 5+ years building cloud-native data platforms, MLOps pipelines and AI/RAG systems. PySpark, Databricks, Delta Lake, AWS, LangChain, MLflow. Pune, India.">
+  <meta name="keywords"
+    content="Anchit Gupta, Data Engineer, PySpark, Databricks, Delta Lake, Medallion, MLOps, MLflow, RAG, LangChain, AWS, Snowflake, dbt, Airflow, OpenMetadata">
   <meta name="author" content="Anchit Gupta">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Anchit Gupta | Senior Data Engineer">
+  <meta property="og:title" content="Anchit Gupta — Senior Data Engineer">
   <meta property="og:description"
-    content="Senior Data Engineer specializing in data pipelines and scalable infrastructure.">
-  <meta property="og:type" content="website">
+    content="I build three things: Medallion lakehouses, the MLOps that ships models off them, and the RAG systems that make them answerable.">
+  <meta property="og:type" content="profile">
   <meta property="og:url" content="https://anchitgupt.github.io">
+  <meta property="og:image" content="https://anchitgupt.github.io/images/anchit-portrait@2x.jpg">
+  <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Fonts -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2308090a'/%3E%3Ctext x='16' y='22' font-family='ui-monospace,monospace' font-size='14' font-weight='700' fill='%23c9f24e' text-anchor='middle'%3EAG%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
     rel="stylesheet">
-
-  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
+  <noscript>
+    <style>
+      .boot,.rail,.spotlight{display:none!important}
+      .reveal{opacity:1!important;transform:none!important}
+      .filters{display:none!important}
+    </style>
+  </noscript>
 </head>
 
 <body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="nav-content">
-      <a href="#" class="nav-logo">AG</a>
-      <ul class="nav-links">
-        <li><a href="#about"><span class="number">01.</span> About</a></li>
-        <li><a href="#experience"><span class="number">02.</span> Experience</a></li>
-        <li><a href="#education"><span class="number">03.</span> Education</a></li>
-        <li><a href="#projects"><span class="number">04.</span> Projects</a></li>
-        <li><a href="#publications"><span class="number">05.</span> Publications</a></li>
-        <li><a href="#certifications"><span class="number">06.</span> Certifications</a></li>
-        <li><a href="#contact"><span class="number">07.</span> Contact</a></li>
-      </ul>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <i class="fas fa-moon" id="themeIcon"></i>
-      </button>
-      <a href="mailto:anchitgupt2012@gmail.com" class="nav-cta">
-        <i class="fas fa-envelope"></i> Contact Me
+
+  <!-- ══ BOOT SEQUENCE ══════════════════════════════════════════ -->
+  <div class="boot" id="boot">
+    <div class="boot-inner">
+      <div class="boot-mark">AG</div>
+      <div class="boot-log" id="bootLog"></div>
+      <div class="boot-bar"><i id="bootBar"></i></div>
+      <div class="boot-skip">press any key to skip</div>
+    </div>
+  </div>
+
+  <!-- ══ AMBIENT LAYERS ═════════════════════════════════════════ -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-aurora" aria-hidden="true"></div>
+  <div class="bg-noise" aria-hidden="true"></div>
+  <div class="spotlight" id="spotlight" aria-hidden="true"></div>
+  <div class="scroll-progress"><i id="scrollBar"></i></div>
+
+  <!-- ══ NAV ════════════════════════════════════════════════════ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#top" class="brand" aria-label="Anchit Gupta — home">
+        <span class="brand-mark">AG</span>
+        <span class="brand-status"><i class="dot"></i>all systems nominal</span>
       </a>
-      <div class="nav-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
+
+      <nav class="nav-links" id="navLinks" aria-label="Primary">
+        <a href="#about"><em>01</em> about</a>
+        <a href="#systems"><em>02</em> systems</a>
+        <a href="#experience"><em>03</em> experience</a>
+        <a href="#impact"><em>04</em> impact</a>
+        <a href="#projects"><em>05</em> projects</a>
+        <a href="#writing"><em>06</em> writing</a>
+        <a href="#contact"><em>07</em> contact</a>
+      </nav>
+
+      <div class="nav-tools">
+        <button class="kbd-trigger" id="paletteTrigger" aria-label="Open command palette">
+          <i class="fas fa-terminal"></i><span>⌘K</span>
+        </button>
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle colour theme">
+          <i class="fas fa-circle-half-stroke"></i>
+        </button>
+        <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span>
+        </button>
       </div>
     </div>
-  </nav>
+  </header>
 
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="hero-bg"></div>
-    <div class="container">
-      <div class="hero-content">
-        <p class="hero-greeting">Hi, my name is</p>
-        <h1 class="hero-name gradient-text">Anchit Gupta.</h1>
-        <h2 class="hero-title">I build data-driven solutions.</h2>
-        <p class="hero-description">
-          I'm a <strong>Senior Data Engineer</strong> with 4+ years of experience
-          specializing in building scalable data pipelines and infrastructure.
-          Currently working at <span class="gradient-text">Sevaro</span>,
-          solving real-world problems through data engineering and AI.
-        </p>
-        <div class="hero-cta">
-          <a href="#projects" class="btn btn-primary">
-            <i class="fas fa-rocket"></i> View My Work
-          </a>
-          <a href="files/Anchit_Gupta_SCE.pdf" target="_blank" class="btn btn-outline">
-            <i class="fas fa-file-alt"></i> Resume
-          </a>
+  <!-- ══ PIPELINE RAIL ══════════════════════════════════════════ -->
+  <aside class="rail" id="rail" aria-hidden="true">
+    <div class="rail-line"><i id="railFill"></i></div>
+    <ul class="rail-stages">
+      <li data-target="top"><span>init</span></li>
+      <li data-target="about"><span>about</span></li>
+      <li data-target="systems"><span>systems</span></li>
+      <li data-target="experience"><span>experience</span></li>
+      <li data-target="impact"><span>impact</span></li>
+      <li data-target="projects"><span>projects</span></li>
+      <li data-target="writing"><span>writing</span></li>
+      <li data-target="credentials"><span>credentials</span></li>
+      <li data-target="contact"><span>contact</span></li>
+    </ul>
+  </aside>
+
+  <main id="top">
+
+    <!-- ══ HERO ═════════════════════════════════════════════════ -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+
+        <div class="hero-copy">
+          <p class="eyebrow reveal" style="--d:0">
+            <i class="dot"></i> anchit@sevaro <span class="sep">:</span> ~/pune <span class="caret">▊</span>
+          </p>
+
+          <h1 class="hero-name reveal" style="--d:1">
+            <span class="line"><span>Anchit</span></span>
+            <span class="line"><span>Gupta</span></span>
+          </h1>
+
+          <h2 class="hero-role reveal" style="--d:2">
+            <span class="hero-role-static">I build</span>
+            <span class="scramble" id="roleScramble"
+              data-words="Medallion lakehouses on Databricks|MLOps pipelines that ship models|RAG systems that cite their sources|platforms that survive 50M rows">Medallion lakehouses on Databricks</span>
+          </h2>
+
+          <p class="hero-desc reveal" style="--d:3">
+            Senior Data Engineer, 5+ years across healthcare, gaming and enterprise. I work three
+            layers of the same stack: the <b class="k-lake">lakehouse</b> that makes data trustworthy,
+            the <b class="k-mlops">MLOps</b> that gets models out of notebooks, and the
+            <b class="k-ai">AI&nbsp;/&nbsp;RAG</b> layer that makes any of it answerable in English.
+            M.Tech, <b>IIIT Delhi</b>.
+          </p>
+
+          <div class="hero-cta reveal" style="--d:4">
+            <a href="#systems" class="btn btn-solid magnetic">
+              <span>See how I build</span> <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="files/Anchit_Gupta_SCE.pdf" target="_blank" rel="noopener" class="btn btn-ghost magnetic">
+              <i class="fas fa-file-arrow-down"></i> <span>Résumé</span>
+            </a>
+            <button class="btn btn-bare" id="heroPalette">
+              <i class="fas fa-terminal"></i> <span>or hit <kbd>⌘</kbd><kbd>K</kbd></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Live DAG panel -->
+        <div class="dag-panel reveal" style="--d:2">
+          <div class="dag-head">
+            <span class="dag-dots"><i></i><i></i><i></i></span>
+            <span class="dag-title">dag: anchit_prod · schedule @continuous</span>
+            <span class="dag-badge" id="dagBadge">running</span>
+          </div>
+          <div class="dag-canvas">
+            <svg id="dag" role="img"
+              aria-label="Animated pipeline diagram: Kafka, S3 and Postgres feed an ingest task, which flows through bronze, silver and gold Delta layers, then fans out into three branches — MLOps, BI serving, and a RAG index."></svg>
+          </div>
+          <div class="dag-legend" aria-hidden="true">
+            <span class="lg lg-lake"><i></i>lakehouse</span>
+            <span class="lg lg-mlops"><i></i>mlops</span>
+            <span class="lg lg-ai"><i></i>ai / rag</span>
+          </div>
+          <div class="dag-log" id="dagLog" aria-hidden="true"></div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- About Section -->
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">
-        <span class="section-number">01.</span> About Me
-      </h2>
-      <div class="about-content">
-        <div class="about-text">
-          <p>
-            Hello! I'm Anchit, a <strong>Senior Data Engineer</strong> specializing in <strong>GenAI and Cloud-Native
-              Analytics</strong>.
-            I enjoy building scalable data platforms and integrating Generative AI solutions to solve complex business
-            problems.
-          </p>
-          <p>
-            With over 4 years of experience, I've worked across the full data lifecycle - from building MDM pipelines
-            for pharmaceutical giants
-            to developing LLaMA-based gaming bots and automating medical document summarization.
-          </p>
-          <p>
-            My background includes an M.Tech in CS from <strong>IIIT Delhi</strong> and deep expertise in the modern
-            data stack.
-            I'm constantly exploring new technologies in the AI/ML space to build more intelligent systems.
-          </p>
-          <p>Here are some technologies I use daily:</p>
-          <ul class="skills-grid">
-            <li class="skill-item">Python & PySpark</li>
-            <li class="skill-item">Databricks & AWS</li>
-            <li class="skill-item">GenAI (LangChain, Llama)</li>
-            <li class="skill-item">Snowflake & dbt</li>
-            <li class="skill-item">Airflow & Docker</li>
-            <li class="skill-item">SQL & NoSQL</li>
-          </ul>
-        </div>
-        <div class="about-image">
-          <img src="images/anchit.jpg" alt="Anchit Gupta">
+      <!-- Stat strip -->
+      <div class="wrap">
+        <div class="stats" id="stats">
+          <div class="stat">
+            <b class="num" data-to="5" data-suffix="+">0</b>
+            <span>years shipping</span>
+          </div>
+          <div class="stat">
+            <b class="num" data-to="50" data-suffix="M+">0</b>
+            <span>records unified</span>
+          </div>
+          <div class="stat">
+            <b class="num" data-to="40" data-suffix="%">0</b>
+            <span>faster ETL</span>
+          </div>
+          <div class="stat">
+            <b class="num" id="statPosts" data-to="10" data-suffix="">0</b>
+            <span>articles published</span>
+          </div>
+          <div class="stat">
+            <b class="num" data-to="8" data-suffix="">0</b>
+            <span>certifications</span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Experience Section -->
-  <section id="experience">
-    <div class="container">
-      <h2 class="section-title fade-in">
-        <span class="section-number">02.</span> Where I've Worked
-      </h2>
-      <div class="experience-timeline">
-        <div class="experience-item fade-in">
-          <p class="experience-date">Oct 2025 — Present</p>
-          <h3 class="experience-role">Senior Data Engineer</h3>
-          <p class="experience-company">@ Sevaro Health</p>
-          <ul class="experience-description">
-            <li>Architected migration to Medallion architecture, reducing technical debt by 20-30%</li>
-            <li>Engineered CI/CD pipelines using GitHub Actions for automated deployments</li>
-            <li>Implemented RBAC policies in Databricks for data security and governance</li>
-            <li>Built data observability framework and monitoring dashboards</li>
-            <li>Spearheaded cloud cost management audits to minimize infrastructure expenses</li>
-          </ul>
-        </div>
-        <div class="experience-item fade-in">
-          <p class="experience-date">Jul 2024 — Oct 2025</p>
-          <h3 class="experience-role">Data Engineer III</h3>
-          <p class="experience-company">@ Junglee Games</p>
-          <ul class="experience-description">
-            <li>Built LangChain-based GenAI summarization agent used across 5 games, saving 3.5 hours per analyst/day
-            </li>
-            <li>Migrated Spark jobs from EMR to Databricks, improving ETL performance by 40% and reducing costs by 30%
-            </li>
-            <li>Developed LLaMA-based Rummy bot for Learn/Practice section, enhancing user onboarding</li>
-            <li>Built MLOps pipelines for A/B testing and dynamic recommendation systems</li>
-          </ul>
-        </div>
-        <div class="experience-item fade-in">
-          <p class="experience-date">Jul 2023 — Jul 2024</p>
-          <h3 class="experience-role">Data Engineer II</h3>
-          <p class="experience-company">@ Junglee Games</p>
-          <ul class="experience-description">
-            <li>Led 3 engineers to develop a centralized alerting and observability framework</li>
-            <li>Designed reusable alerting system with email support, reducing alert development effort by 70%</li>
-            <li>Created freshness and anomaly detection modules, reducing data quality incidents by 50%</li>
-          </ul>
-        </div>
-        <div class="experience-item fade-in">
-          <p class="experience-date">Oct 2022 — Jul 2023</p>
-          <h3 class="experience-role">Data Engineer I</h3>
-          <p class="experience-company">@ Junglee Games</p>
-          <ul class="experience-description">
-            <li>Built self-serve analytics layers for cross-functional teams</li>
-            <li>Enhanced GST/TDS pipelines, reducing turnaround time by 20%</li>
-            <li>Improved KPI dashboards, cutting SLA delays by 80%</li>
-          </ul>
-        </div>
-        <div class="experience-item fade-in">
-          <p class="experience-date">Apr 2022 — Sep 2022</p>
-          <h3 class="experience-role">Associate</h3>
-          <p class="experience-company">@ Axtria</p>
-          <ul class="experience-description">
-            <li>Developed MDM pipelines to unify 50M+ records using NLP, achieving 87% match accuracy</li>
-            <li>Delivered ETL tools and Golden Record logic for pharma client data</li>
-          </ul>
-        </div>
-        <div class="experience-item fade-in">
-          <p class="experience-date">Jul 2021 — Apr 2022</p>
-          <h3 class="experience-role">Data Analyst</h3>
-          <p class="experience-company">@ Axtria</p>
-          <ul class="experience-description">
-            <li>Generated HCP/HCO hierarchies and automated stakeholder notifications</li>
-            <li>Reduced matching algorithm time by 40% through memory optimization</li>
-          </ul>
+      <!-- Marquee -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>PySpark</span><i>◆</i><span>Databricks</span><i>◆</i><span>Delta Lake</span><i>◆</i>
+          <span>Unity Catalog</span><i>◆</i><span>MLflow</span><i>◆</i><span>LangChain</span><i>◆</i>
+          <span>OpenMetadata</span><i>◆</i><span>Airflow</span><i>◆</i><span>dbt</span><i>◆</i>
+          <span>Snowflake</span><i>◆</i><span>AWS</span><i>◆</i><span>HuggingFace</span><i>◆</i>
+          <span>Docker</span><i>◆</i><span>RAG</span><i>◆</i><span>Medallion</span><i>◆</i>
+          <span>PySpark</span><i>◆</i><span>Databricks</span><i>◆</i><span>Delta Lake</span><i>◆</i>
+          <span>Unity Catalog</span><i>◆</i><span>MLflow</span><i>◆</i><span>LangChain</span><i>◆</i>
+          <span>OpenMetadata</span><i>◆</i><span>Airflow</span><i>◆</i><span>dbt</span><i>◆</i>
+          <span>Snowflake</span><i>◆</i><span>AWS</span><i>◆</i><span>HuggingFace</span><i>◆</i>
+          <span>Docker</span><i>◆</i><span>RAG</span><i>◆</i><span>Medallion</span><i>◆</i>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Education Section -->
-  <section id="education">
-    <div class="container">
-      <h2 class="section-title fade-in">
-        <span class="section-number">03.</span> Education
-      </h2>
-      <div class="education-grid">
-        <div class="education-card fade-in">
-          <p class="education-degree">Master of Technology</p>
-          <h3 class="education-institution">IIIT Delhi</h3>
-          <p class="education-period">2019 — 2021</p>
-          <p class="education-details">
-            Specialized in Computer Science with focus on Natural Language Processing
-            and Deep Learning. Worked on research projects involving semantic analysis
-            and information retrieval.
-          </p>
-          <span class="education-highlight">
-            <i class="fas fa-trophy"></i> GATE Score: 98.14
-          </span>
-        </div>
-        <div class="education-card fade-in">
-          <p class="education-degree">Bachelor of Technology</p>
-          <h3 class="education-institution">Moradabad Institute of Technology (AKTU)</h3>
-          <p class="education-period">2014 — 2018</p>
-          <p class="education-details">
-            Completed B.Tech in Computer Science with First Division.
-            Developed foundational skills in programming, Android development,
-            and machine learning.
-          </p>
-          <span class="education-highlight">
-            <i class="fas fa-medal"></i> First Division
-          </span>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- ══ ABOUT ════════════════════════════════════════════════ -->
+    <section id="about" class="sec">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-num">01</span>
+          <h2 class="sec-title" data-scramble>About</h2>
+          <span class="sec-rule"></span>
+          <span class="sec-meta">SELECT * FROM anchit</span>
+        </header>
 
-  <!-- Projects Section -->
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title fade-in">
-        <span class="section-number">04.</span> Things I've Built
-      </h2>
-      <div class="projects-grid">
-        <article class="project-card fade-in">
-          <div class="project-header">
-            <span class="project-icon">🤖</span>
-            <div class="project-links">
-              <a href="#" class="btn-link" title="Proprietary Project">
-                <i class="fas fa-building"></i>
-              </a>
-            </div>
-          </div>
-          <h3 class="project-title">GenAI Medical Summarization</h3>
-          <p class="project-description">
-            Automated system for summarizing complex medical documents using Generative AI.
-            Streamlines information extraction for healthcare professionals to improve patient care.
-          </p>
-          <div class="project-tech">
-            <span>LLMs</span>
-            <span>LangChain</span>
-            <span>Python</span>
-            <span>Healthcare</span>
-          </div>
-        </article>
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <p>
+              I'm a Senior Data Engineer at <b>Sevaro Health</b> in Pune, building cloud-native data
+              platforms and the GenAI analytics that sit on top of them. Most of my work starts the
+              same way: something upstream is messy, slow, or expensive — and by the time I'm done
+              it's governed, observable, and 40% cheaper to run.
+            </p>
+            <p>
+              Right now that means a <b class="k-lake">multi-tenant access architecture</b> —
+              per-tenant Databricks service principals, Okta JWT authentication, Unity Catalog
+              scoped grants and AWS Secrets Manager — enforcing client data isolation on shared
+              infrastructure. Alongside it, an <b>OpenMetadata</b> catalog spanning Databricks,
+              DOMO and MongoDB with automated data dictionaries, cross-platform lineage and PII
+              tagging.
+            </p>
+            <p>
+              Before that: five years at Junglee Games and Axtria resolving <b>50M+ pharmaceutical
+              records</b> at 87% match accuracy, cutting Spark compute 30% by moving EMR →
+              Databricks, and shipping a <b class="k-ai">LangChain</b> summarisation agent that gave
+              five game studios back 3.5 hours per analyst per day.
+            </p>
+            <p>
+              Off the clock I write the <a class="ilink" href="#writing">Medallion &amp; AI series</a>
+              on Medium and build in public — a dbt project with 56 tests, an LLM built from scratch,
+              a KV-cache quantiser, and a browser-native SQL trainer.
+            </p>
 
-        <article class="project-card fade-in">
-          <div class="project-header">
-            <span class="project-icon">🎮</span>
-            <div class="project-links">
-              <a href="#" class="btn-link" title="Proprietary Project">
-                <i class="fas fa-building"></i>
-              </a>
-            </div>
-          </div>
-          <h3 class="project-title">LLaMA Gaming Bot</h3>
-          <p class="project-description">
-            Integrated LLaMA models into gaming environments to create intelligent,
-            responsive bots that enhance player engagement at Junglee Games.
-          </p>
-          <div class="project-tech">
-            <span>GenAI</span>
-            <span>LLaMA</span>
-            <span>Game Dev</span>
-            <span>Python</span>
-          </div>
-        </article>
-
-        <article class="project-card fade-in">
-          <div class="project-header">
-            <span class="project-icon">💊</span>
-            <div class="project-links">
-              <a href="#" class="btn-link" title="Proprietary Project">
-                <i class="fas fa-building"></i>
-              </a>
-            </div>
-          </div>
-          <h3 class="project-title">Pharma MDM Pipeline</h3>
-          <p class="project-description">
-            Enterprise Master Data Management pipeline processing 50M+ records.
-            Implemented fuzzy matching and NLP for high-accuracy entity resolution.
-          </p>
-          <div class="project-tech">
-            <span>Big Data</span>
-            <span>NLP</span>
-            <span>Spark</span>
-            <span>Axtria</span>
-          </div>
-        </article>
-
-        <article class="project-card fade-in">
-          <div class="project-header">
-            <span class="project-icon">📚</span>
-            <div class="project-links">
-              <a href="https://github.com/anchitgupt/wikipedia-sematics" target="_blank" title="GitHub">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-          <h3 class="project-title">Wikipedia Citation Verifier</h3>
-          <p class="project-description">
-            NLP-based Chrome Extension to find semantically similar sentences in
-            cited documents for Wikipedia citations using deep learning embeddings.
-          </p>
-          <div class="project-tech">
-            <span>Python</span>
-            <span>Deep Learning</span>
-            <span>Chrome Ext</span>
-          </div>
-        </article>
-
-        <article class="project-card fade-in">
-          <div class="project-header">
-            <span class="project-icon">😄</span>
-            <div class="project-links">
-              <a href="https://github.com/anchitgupt" target="_blank" title="GitHub">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-          <h3 class="project-title">Humour Detection</h3>
-          <p class="project-description">
-            Text classification system to detect humor using deep learning embeddings,
-            optimized for memory-sensitive mobile devices with model size <10 MB. </p>
-              <div class="project-tech">
-                <span>TensorFlow</span>
-                <span>NLP</span>
-                <span>Mobile AI</span>
+            <div class="stack">
+              <div class="stack-head">
+                <span class="mono-label">core stack</span>
+                <span class="mono-dim">self-reported · honest</span>
               </div>
-        </article>
+              <ul class="stack-list">
+                <li data-level="95"><span>Python / PySpark</span><i class="bar"><b></b></i><em>95</em></li>
+                <li data-level="92"><span>Databricks / Delta</span><i class="bar"><b></b></i><em>92</em></li>
+                <li data-level="90"><span>SQL / Warehousing</span><i class="bar"><b></b></i><em>90</em></li>
+                <li data-level="85"><span>AWS / Cloud Infra</span><i class="bar"><b></b></i><em>85</em></li>
+                <li data-level="82"><span>Airflow / dbt</span><i class="bar"><b></b></i><em>82</em></li>
+                <li data-level="80"><span>LangChain / MLflow</span><i class="bar"><b></b></i><em>80</em></li>
+              </ul>
+            </div>
 
-        <article class="project-card fade-in">
-          <div class="project-header">
-            <span class="project-icon">🩸</span>
-            <div class="project-links">
-              <a href="https://github.com/anchitgupt" target="_blank" title="GitHub">
-                <i class="fab fa-github"></i>
-              </a>
+            <div class="skills">
+              <div class="skill-row"><span>programming</span><b>Python (advanced) · SQL · Bash · C/C++ · JavaScript</b></div>
+              <div class="skill-row"><span>data platforms</span><b>Apache Spark (PySpark) · Delta Lake · Databricks · Airflow · dbt</b></div>
+              <div class="skill-row"><span>cloud &amp; infra</span><b>AWS (S3, Redshift, Lambda) · Snowflake · MongoDB · Docker · GitHub Actions</b></div>
+              <div class="skill-row"><span>genai &amp; ml</span><b>LangChain · HuggingFace · MLflow · LLaMA · NLP (spaCy, fuzzy matching)</b></div>
+              <div class="skill-row"><span>etl &amp; mdm</span><b>Talend · canonical models · MDM pipelines · golden record logic</b></div>
+              <div class="skill-row"><span>observability</span><b>Alerting frameworks · anomaly detection · SLA monitoring</b></div>
+              <div class="skill-row"><span>bi &amp; reporting</span><b>Tableau · Power BI · business KPI dashboards</b></div>
             </div>
           </div>
-          <h3 class="project-title">Blood Bank Finder</h3>
-          <p class="project-description">
-            Android application to help users locate blood banks across India.
-            Features real-time availability and location-based search.
-          </p>
-          <div class="project-tech">
-            <span>Android</span>
-            <span>Java</span>
-            <span>Firebase</span>
-            <span>Maps API</span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
 
-  <!-- Publications Section -->
-  <section id="publications">
-    <div class="container">
-      <h2 class="section-title fade-in">
-        <span class="section-number">05.</span> Publications
-      </h2>
-      <p class="section-subtitle fade-in">Technical articles on Data Engineering, Apache Spark, and AI/ML</p>
-      <div class="publications-grid">
-        <article class="publication-card fade-in">
-          <div class="publication-meta">
-            <span class="publication-date">Jan 2025</span>
-            <span class="publication-platform"><i class="fab fa-medium"></i> Medium</span>
-          </div>
-          <h3 class="publication-title">
-            <a href="https://medium.com/@anchitgupt2012/whats-new-in-apache-spark-4-1-for-developers-17931f6920f0"
-              target="_blank" rel="noopener">
-              What's New in Apache Spark 4.1 for Developers?
-            </a>
-          </h3>
-          <p class="publication-excerpt">Apache Spark 4.1 is packed with features designed to make data engineering
-            faster, more flexible, and more efficient...</p>
-          <div class="publication-tags">
-            <span>Spark</span>
-            <span>Big Data</span>
-          </div>
-        </article>
-        <article class="publication-card fade-in">
-          <div class="publication-meta">
-            <span class="publication-date">Jan 2025</span>
-            <span class="publication-platform"><i class="fab fa-medium"></i> Medium</span>
-          </div>
-          <h3 class="publication-title">
-            <a href="https://medium.com/@anchitgupt2012/breaking-into-data-engineering-the-complete-roadmap-for-2026-c73e16b51e0d"
-              target="_blank" rel="noopener">
-              Breaking Into Data Engineering: The Complete Roadmap for 2026
-            </a>
-          </h3>
-          <p class="publication-excerpt">Data engineering is one of the most in-demand roles in tech. With the rise of
-            GenAI and real-time analytics, the role is evolving...</p>
-          <div class="publication-tags">
-            <span>Career</span>
-            <span>Data Engineering</span>
-          </div>
-        </article>
-        <article class="publication-card fade-in">
-          <div class="publication-meta">
-            <span class="publication-date">Jan 2025</span>
-            <span class="publication-platform"><i class="fab fa-medium"></i> Medium</span>
-          </div>
-          <h3 class="publication-title">
-            <a href="https://medium.com/@anchitgupt2012/how-pro-handles-un-strucutred-data-in-databricks-atleast-475a892b1ae4"
-              target="_blank" rel="noopener">
-              How Pro Handles Unstructured Data in Databricks
-            </a>
-          </h3>
-          <p class="publication-excerpt">The real power of a Lakehouse comes from how you handle unstructured data. In
-            this article, we explore best practices...</p>
-          <div class="publication-tags">
-            <span>Databricks</span>
-            <span>Lakehouse</span>
-          </div>
-        </article>
-        <article class="publication-card fade-in">
-          <div class="publication-meta">
-            <span class="publication-date">Dec 2024</span>
-            <span class="publication-platform"><i class="fab fa-medium"></i> Medium</span>
-          </div>
-          <h3 class="publication-title">
-            <a href="https://medium.com/@anchitgupt2012/level-up-your-etl-code-with-arrow-in-pyspark-d2b3c75a4087"
-              target="_blank" rel="noopener">
-              Level Up Your ETL Code with Arrow in PySpark
-            </a>
-          </h3>
-          <p class="publication-excerpt">Apache Arrow is a cross-language platform for in-memory data that specifies a
-            standardized column-oriented format...</p>
-          <div class="publication-tags">
-            <span>PySpark</span>
-            <span>Arrow</span>
-          </div>
-        </article>
-        <article class="publication-card fade-in">
-          <div class="publication-meta">
-            <span class="publication-date">Nov 2024</span>
-            <span class="publication-platform"><i class="fab fa-medium"></i> Medium</span>
-          </div>
-          <h3 class="publication-title">
-            <a href="https://medium.com/@anchitgupt2012/what-developers-need-to-know-about-apache-spark-4-0-be0350d757d5"
-              target="_blank" rel="noopener">
-              What Developers Need to Know About Apache Spark 4.0
-            </a>
-          </h3>
-          <p class="publication-excerpt">Apache Spark 4.0 is on the horizon, bringing major changes to the world of big
-            data processing...</p>
-          <div class="publication-tags">
-            <span>Spark</span>
-            <span>Big Data</span>
-          </div>
-        </article>
-        <article class="publication-card fade-in">
-          <div class="publication-meta">
-            <span class="publication-date">Nov 2024</span>
-            <span class="publication-platform"><i class="fab fa-medium"></i> Medium</span>
-          </div>
-          <h3 class="publication-title">
-            <a href="https://medium.com/@anchitgupt2012/how-to-build-a-data-engineering-portfolio-that-actually-gets-you-hired-702f30b8d5a2"
-              target="_blank" rel="noopener">
-              How to Build a Data Engineering Portfolio That Gets You Hired
-            </a>
-          </h3>
-          <p class="publication-excerpt">Building a data engineering portfolio is one of the most important things you
-            can do to stand out in a crowded job market...</p>
-          <div class="publication-tags">
-            <span>Career</span>
-            <span>Portfolio</span>
-          </div>
-        </article>
-      </div>
-      <div class="publications-cta fade-in">
-        <a href="https://medium.com/@anchitgupt2012" target="_blank" rel="noopener" class="btn btn-outline">
-          <i class="fab fa-medium"></i> View All Articles on Medium
-        </a>
-      </div>
-    </div>
-  </section>
+          <aside class="about-side reveal">
+            <figure class="portrait">
+              <span class="corner tl"></span><span class="corner tr"></span>
+              <span class="corner bl"></span><span class="corner br"></span>
+              <img src="images/anchit-portrait.jpg"
+                srcset="images/anchit-portrait.jpg 400w, images/anchit-portrait@2x.jpg 800w"
+                sizes="(max-width: 1080px) 45vw, 340px"
+                width="400" height="500"
+                alt="Anchit Gupta, smiling, outdoors in front of a lake"
+                loading="lazy" decoding="async">
+              <span class="portrait-scan"></span>
+              <figcaption>
+                <span>portrait.jpg</span>
+                <span>Pune, IN</span>
+              </figcaption>
+            </figure>
 
-  <!-- Certifications Section -->
-  <section id="certifications">
-    <div class="container">
-      <h2 class="section-title fade-in">
-        <span class="section-number">06.</span> Certifications
-      </h2>
-      <div class="certifications-grid">
-        <div class="cert-card cert-highlight fade-in">
-          <span class="cert-icon">🎓</span>
-          <div class="cert-info">
-            <h4>GATE 2019</h4>
-            <p class="cert-issuer">Score: 98.14 Percentile</p>
-          </div>
-        </div>
-        <div class="cert-card fade-in">
-          <span class="cert-icon">🔷</span>
-          <div class="cert-info">
-            <h4>Databricks Fundamentals Accreditation</h4>
-            <p class="cert-issuer">Databricks</p>
-          </div>
-        </div>
-        <div class="cert-card fade-in">
-          <span class="cert-icon">🤖</span>
-          <div class="cert-info">
-            <h4>LangChain for LLM Application Development</h4>
-            <p class="cert-issuer">DeepLearning.AI</p>
-          </div>
-        </div>
-        <div class="cert-card fade-in">
-          <span class="cert-icon">🔧</span>
-          <div class="cert-info">
-            <h4>Apache Airflow Fundamentals</h4>
-            <p class="cert-issuer">Astronomer</p>
-          </div>
-        </div>
-        <div class="cert-card fade-in">
-          <span class="cert-icon">☁️</span>
-          <div class="cert-info">
-            <h4>Azure Databricks & Spark Core</h4>
-            <p class="cert-issuer">Udemy</p>
-          </div>
-        </div>
-        <div class="cert-card fade-in">
-          <span class="cert-icon">📊</span>
-          <div class="cert-info">
-            <h4>MTA Database Fundamentals</h4>
-            <p class="cert-issuer">Microsoft</p>
-          </div>
-        </div>
-        <div class="cert-card fade-in">
-          <span class="cert-icon">☕</span>
-          <div class="cert-info">
-            <h4>J2SE Java Certification</h4>
-            <p class="cert-issuer">Oracle</p>
-          </div>
-        </div>
-        <div class="cert-card fade-in">
-          <span class="cert-icon">📱</span>
-          <div class="cert-info">
-            <h4>Android App Development</h4>
-            <p class="cert-issuer">Google</p>
-          </div>
+            <div class="card facts">
+              <div class="fact"><span>role</span><b>Senior Data Engineer</b></div>
+              <div class="fact"><span>at</span><b>Sevaro Health</b></div>
+              <div class="fact"><span>based</span><b>Pune, India</b></div>
+              <div class="fact"><span>edu</span><b>M.Tech, IIIT Delhi</b></div>
+              <div class="fact"><span>gate</span><b>98.14 percentile</b></div>
+              <div class="fact"><span>status</span><b class="ok">open to opportunities</b></div>
+            </div>
+          </aside>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="contact-content">
-        <p class="contact-subtitle">06. What's Next?</p>
-        <h2 class="contact-title">Get In Touch</h2>
-        <p class="contact-description">
-          I'm currently open to new opportunities and exciting projects.
-          Whether you have a question or just want to say hi, my inbox is always open.
-          I'll try my best to get back to you!
+    <!-- ══ SYSTEMS ══════════════════════════════════════════════ -->
+    <section id="systems" class="sec sec-band">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-num">02</span>
+          <h2 class="sec-title" data-scramble>Three systems</h2>
+          <span class="sec-rule"></span>
+          <span class="sec-meta">one stack, three layers</span>
+        </header>
+
+        <p class="sec-lede reveal">
+          A lakehouse nobody trusts is a swamp. A model that never leaves a notebook is a hobby.
+          A RAG system on ungoverned data is a confident liar. I build all three so none of them
+          fails alone.
         </p>
-        <div class="contact-cta">
-          <a href="mailto:anchit19060@iiitd.ac.in" class="btn btn-primary">
-            <i class="fas fa-envelope"></i> Say Hello
-          </a>
+
+        <div class="systems">
+
+          <article class="system sys-lake reveal">
+            <header class="sys-head">
+              <span class="sys-idx">S/01</span>
+              <span class="sys-tag">lakehouse</span>
+            </header>
+            <h3 class="sys-title">Medallion Architecture</h3>
+            <p class="sys-desc">
+              Raw lands once and never changes. Everything downstream is a rebuildable opinion of it,
+              and each hop earns a stronger guarantee — replayable, then conformed, then trusted.
+            </p>
+            <ol class="flow">
+              <li class="step st-bronze"><b>Bronze</b><span>raw · immutable · replayable</span></li>
+              <li class="step st-silver"><b>Silver</b><span>cleaned · conformed · tested</span></li>
+              <li class="step st-gold"><b>Gold</b><span>modelled · served · trusted</span></li>
+            </ol>
+            <ul class="sys-notes">
+              <li>Delta Lake on Databricks, Unity Catalog scoped grants</li>
+              <li>SCD2 dimensions, partitioning &amp; liquid clustering</li>
+              <li>Freshness and anomaly checks gate every promotion</li>
+            </ul>
+          </article>
+
+          <article class="system sys-mlops reveal">
+            <header class="sys-head">
+              <span class="sys-idx">S/02</span>
+              <span class="sys-tag">mlops</span>
+            </header>
+            <h3 class="sys-title">MLOps Backbone</h3>
+            <p class="sys-desc">
+              The Gold layer is where models should start. Same tables, same tests, same lineage —
+              so a feature in training is provably the feature in production.
+            </p>
+            <ol class="flow">
+              <li class="step"><b>Features</b><span>from gold · versioned</span></li>
+              <li class="step"><b>Train</b><span>MLflow · tracked</span></li>
+              <li class="step"><b>Registry</b><span>staged · approved</span></li>
+              <li class="step"><b>Serve</b><span>batch · online</span></li>
+              <li class="step"><b>Monitor</b><span>drift · A/B</span></li>
+            </ol>
+            <ul class="sys-notes">
+              <li>MLflow tracking and model registry, GitHub Actions CI/CD</li>
+              <li>A/B testing harness and dynamic recommendation systems</li>
+              <li>Training/serving skew caught at the feature layer, not in prod</li>
+            </ul>
+          </article>
+
+          <article class="system sys-ai reveal">
+            <header class="sys-head">
+              <span class="sys-idx">S/03</span>
+              <span class="sys-tag">ai / rag</span>
+            </header>
+            <h3 class="sys-title">Retrieval-Augmented Generation</h3>
+            <p class="sys-desc">
+              An LLM is only as honest as its retriever. Ground it in governed Gold tables, cite the
+              chunk, evaluate the answer — otherwise you've shipped a very fluent guess.
+            </p>
+            <ol class="flow">
+              <li class="step"><b>Chunk</b><span>semantic splits</span></li>
+              <li class="step"><b>Embed</b><span>HuggingFace</span></li>
+              <li class="step"><b>Index</b><span>vector store</span></li>
+              <li class="step"><b>Retrieve</b><span>hybrid + rerank</span></li>
+              <li class="step"><b>Generate</b><span>cited answers</span></li>
+              <li class="step"><b>Evaluate</b><span>groundedness</span></li>
+            </ol>
+            <ul class="sys-notes">
+              <li>LangChain orchestration over LLaMA and hosted models</li>
+              <li>PII tagged upstream, so retrieval can't leak what it shouldn't</li>
+              <li>Shipped in production for clinical summarisation and game analytics</li>
+            </ul>
+          </article>
+
         </div>
-        <div class="social-links">
-          <a href="https://github.com/anchitgupt" target="_blank" rel="noopener" title="GitHub">
-            <i class="fab fa-github"></i>
+      </div>
+    </section>
+
+    <!-- ══ EXPERIENCE ═══════════════════════════════════════════ -->
+    <section id="experience" class="sec">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-num">03</span>
+          <h2 class="sec-title" data-scramble>Run history</h2>
+          <span class="sec-rule"></span>
+          <span class="sec-meta">3 companies · 0 failed</span>
+        </header>
+
+        <ol class="runs">
+          <li class="run reveal" data-status="active">
+            <div class="run-node"><i></i></div>
+            <div class="run-body">
+              <div class="run-top">
+                <span class="run-date">Oct 2025 — Present</span>
+                <span class="run-chip live"><i class="dot"></i> running</span>
+                <span class="run-loc">Pune, India</span>
+              </div>
+              <h3 class="run-role">Senior Data Engineer <span class="at">@</span> <b>Sevaro Health</b></h3>
+              <ul class="run-tasks">
+                <li>Architected a <b>multi-tenant access architecture</b> for the analytics platform —
+                  per-tenant Databricks service principals, Okta JWT authentication, Unity Catalog
+                  scoped grants and AWS Secrets Manager credential storage — enforcing client data
+                  isolation on shared infrastructure</li>
+                <li>Architected the migration to a <b class="k-lake">Medallion architecture</b>,
+                  projected to reduce technical debt 20–30% and optimise operational workflows</li>
+                <li>Led an <b>OpenMetadata</b> POC and production onboarding for a unified catalog
+                  spanning Databricks, DOMO and MongoDB — automated data dictionary generation,
+                  cross-platform lineage and PII tagging</li>
+                <li>Drove catalog adoption across engineering and analytics, cutting the effort to
+                  trace dataset ownership and assess downstream impact ahead of schema changes</li>
+                <li>Engineered CI/CD pipelines with GitHub Actions to automate pipeline deployments
+                  and enforce code quality gates</li>
+                <li>Established a data observability framework and monitoring dashboards, improving
+                  pipeline reliability and incident response</li>
+                <li>Spearheaded cloud cost audits to track resource utilisation and reduce spend</li>
+              </ul>
+              <div class="run-tags"><span>Unity Catalog</span><span>OpenMetadata</span><span>Okta JWT</span><span>Medallion</span><span>CI/CD</span><span>FinOps</span></div>
+            </div>
+          </li>
+
+          <li class="run reveal">
+            <div class="run-node"><i></i></div>
+            <div class="run-body">
+              <div class="run-top">
+                <span class="run-date">Oct 2022 — Oct 2025</span>
+                <span class="run-chip">success</span>
+                <span class="run-loc">India</span>
+              </div>
+              <h3 class="run-role">Data Engineer I → II → III <span class="at">@</span> <b>Junglee Games</b></h3>
+
+              <div class="sub-run">
+                <div class="sub-top"><h4>Data Engineer III</h4><span>Jul 2024 — Oct 2025</span></div>
+                <ul class="run-tasks">
+                  <li>Built a <b class="k-ai">LangChain</b> GenAI summarisation agent used daily across
+                    5 games, saving 3.5 hours per analyst per day</li>
+                  <li>Migrated Spark jobs from EMR to Databricks — <b>+40% ETL performance, −30% compute cost</b></li>
+                  <li>Developed a <b>LLaMA</b>-based Rummy bot for the Learn/Practice section, improving onboarding</li>
+                  <li>Built <b class="k-mlops">MLOps</b> pipelines for A/B testing and dynamic recommendation systems</li>
+                </ul>
+              </div>
+
+              <div class="sub-run">
+                <div class="sub-top"><h4>Data Engineer II</h4><span>Jul 2023 — Jul 2024</span></div>
+                <ul class="run-tasks">
+                  <li>Led 3 engineers to build a centralised alerting and observability framework</li>
+                  <li>Designed a reusable alerting system with email support, cutting alert development effort by <b>70%</b></li>
+                  <li>Created freshness and anomaly detection modules, reducing data quality incidents by <b>50%</b></li>
+                </ul>
+              </div>
+
+              <div class="sub-run">
+                <div class="sub-top"><h4>Data Engineer I</h4><span>Oct 2022 — Jul 2023</span></div>
+                <ul class="run-tasks">
+                  <li>Built self-serve analytics layers for cross-functional teams</li>
+                  <li>Enhanced GST/TDS pipelines, reducing turnaround time by 20%</li>
+                  <li>Improved KPI dashboards, cutting SLA delays by <b>80%</b></li>
+                </ul>
+              </div>
+
+              <div class="run-tags"><span>LangChain</span><span>LLaMA</span><span>Spark</span><span>MLOps</span><span>Observability</span><span>EMR→DBX</span></div>
+            </div>
+          </li>
+
+          <li class="run reveal">
+            <div class="run-node"><i></i></div>
+            <div class="run-body">
+              <div class="run-top">
+                <span class="run-date">Jul 2021 — Sep 2022</span>
+                <span class="run-chip">success</span>
+                <span class="run-loc">India</span>
+              </div>
+              <h3 class="run-role">Data Analyst → Associate <span class="at">@</span> <b>Axtria</b></h3>
+              <ul class="run-tasks">
+                <li>Developed MDM pipelines unifying <b>50M+ records</b> with NLP, achieving 87% match accuracy</li>
+                <li>Delivered ETL tooling and Golden Record logic for pharmaceutical client data</li>
+                <li>Generated HCP/HCO hierarchies and automated stakeholder notifications</li>
+                <li>Reduced matching algorithm runtime by <b>40%</b> through memory optimisation</li>
+              </ul>
+              <div class="run-tags"><span>MDM</span><span>NLP</span><span>Talend</span><span>Pharma</span><span>Entity Resolution</span></div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ══ IMPACT ═══════════════════════════════════════════════ -->
+    <section id="impact" class="sec sec-band">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-num">04</span>
+          <h2 class="sec-title" data-scramble>Impact</h2>
+          <span class="sec-rule"></span>
+          <span class="sec-meta">measured, not vibed</span>
+        </header>
+
+        <div class="metrics" id="metrics">
+          <div class="metric reveal" data-value="40">
+            <div class="metric-top"><span class="metric-k">ETL performance</span><span class="metric-v"><b class="num" data-to="40" data-suffix="%">0</b><i class="up">▲</i></span></div>
+            <div class="meter"><i></i></div>
+            <p>EMR → Databricks migration of production Spark workloads</p>
+          </div>
+          <div class="metric reveal" data-value="30">
+            <div class="metric-top"><span class="metric-k">Compute cost</span><span class="metric-v"><b class="num" data-to="30" data-suffix="%">0</b><i class="down">▼</i></span></div>
+            <div class="meter"><i></i></div>
+            <p>Right-sized clusters, job consolidation and cloud cost audits</p>
+          </div>
+          <div class="metric reveal" data-value="50">
+            <div class="metric-top"><span class="metric-k">Data-quality incidents</span><span class="metric-v"><b class="num" data-to="50" data-suffix="%">0</b><i class="down">▼</i></span></div>
+            <div class="meter"><i></i></div>
+            <p>Freshness + anomaly detection modules shipped platform-wide</p>
+          </div>
+          <div class="metric reveal" data-value="70">
+            <div class="metric-top"><span class="metric-k">Alert dev effort</span><span class="metric-v"><b class="num" data-to="70" data-suffix="%">0</b><i class="down">▼</i></span></div>
+            <div class="meter"><i></i></div>
+            <p>Reusable, config-driven alerting framework with email delivery</p>
+          </div>
+          <div class="metric reveal" data-value="80">
+            <div class="metric-top"><span class="metric-k">SLA delays</span><span class="metric-v"><b class="num" data-to="80" data-suffix="%">0</b><i class="down">▼</i></span></div>
+            <div class="meter"><i></i></div>
+            <p>Rebuilt KPI dashboards and the pipelines feeding them</p>
+          </div>
+          <div class="metric reveal" data-value="87">
+            <div class="metric-top"><span class="metric-k">Entity match accuracy</span><span class="metric-v"><b class="num" data-to="87" data-suffix="%">0</b><i class="up">▲</i></span></div>
+            <div class="meter"><i></i></div>
+            <p>NLP-driven master data management across 50M+ records</p>
+          </div>
+        </div>
+
+        <div class="callout reveal">
+          <span class="mono-label">and the one that isn't a percentage</span>
+          <p><b>3.5 hours</b> back per analyst per day, across five games — the LangChain
+            summarisation agent. Five analysts, five days a week, is most of a working month
+            returned every month.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PROJECTS ═════════════════════════════════════════════ -->
+    <section id="projects" class="sec">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-num">05</span>
+          <h2 class="sec-title" data-scramble>Things I built</h2>
+          <span class="sec-rule"></span>
+          <span class="sec-meta">github.com/anchitgupt · /ez-biz</span>
+        </header>
+
+        <div class="filters reveal" role="tablist" aria-label="Filter projects" data-for="projectGrid" data-empty="projEmpty">
+          <button class="chip on" role="tab" aria-selected="true" data-f="all">all</button>
+          <button class="chip" role="tab" aria-selected="false" data-f="lake">lakehouse</button>
+          <button class="chip" role="tab" aria-selected="false" data-f="mlops">mlops</button>
+          <button class="chip" role="tab" aria-selected="false" data-f="ai">ai / llm</button>
+          <button class="chip" role="tab" aria-selected="false" data-f="tools">tools</button>
+        </div>
+
+        <div class="projects" id="projectGrid">
+
+          <article class="proj proj-feature reveal spot t-ai" data-f="ai">
+            <div class="proj-top">
+              <span class="proj-idx">P/01</span>
+              <span class="proj-lock"><i class="fas fa-building-lock"></i> proprietary</span>
+            </div>
+            <h3 class="proj-title">GenAI Medical Summarisation</h3>
+            <p class="proj-desc">
+              A production RAG pipeline that reads dense clinical documentation and returns the parts
+              a neurologist actually needs. Semantic chunking, retrieval and prompt orchestration
+              tuned for clinical precision — extraction that used to take minutes takes seconds.
+            </p>
+            <div class="proj-metrics">
+              <div><b>LangChain</b><span>orchestration</span></div>
+              <div><b>Semantic</b><span>chunking</span></div>
+              <div><b>Clinical</b><span>domain</span></div>
+            </div>
+            <div class="proj-tags"><span>RAG</span><span>LLMs</span><span>LangChain</span><span>Healthcare</span></div>
+          </article>
+
+          <article class="proj reveal spot t-ai" data-f="ai">
+            <div class="proj-top">
+              <span class="proj-idx">P/02</span>
+              <span class="proj-lock"><i class="fas fa-building-lock"></i> proprietary</span>
+            </div>
+            <h3 class="proj-title">LLaMA Rummy Bot</h3>
+            <p class="proj-desc">
+              A LLaMA-driven opponent for Junglee's Learn &amp; Practice mode — it plays a credible
+              hand and explains why, turning onboarding from a tutorial into a game.
+            </p>
+            <div class="proj-tags"><span>LLaMA</span><span>GenAI</span><span>Game Systems</span></div>
+          </article>
+
+          <article class="proj reveal spot t-mlops" data-f="mlops">
+            <div class="proj-top">
+              <span class="proj-idx">P/03</span>
+              <span class="proj-lock"><i class="fas fa-building-lock"></i> proprietary</span>
+            </div>
+            <h3 class="proj-title">A/B &amp; Recommendation MLOps</h3>
+            <p class="proj-desc">
+              MLOps pipelines at Junglee Games for A/B testing and dynamic recommendation
+              systems — models fed from the same governed tables that back the reporting.
+            </p>
+            <div class="proj-tags"><span>MLOps</span><span>A/B Testing</span><span>Recommenders</span></div>
+          </article>
+
+          <article class="proj reveal spot t-lake" data-f="lake">
+            <div class="proj-top">
+              <span class="proj-idx">P/04</span>
+              <span class="proj-lock"><i class="fas fa-building-lock"></i> proprietary</span>
+            </div>
+            <h3 class="proj-title">Pharma MDM Pipeline</h3>
+            <p class="proj-desc">
+              Entity resolution at scale: 50M+ records collapsed into Golden Records with fuzzy
+              matching and NLP, hitting 87% match accuracy on notoriously dirty HCP/HCO data.
+            </p>
+            <div class="proj-tags"><span>MDM</span><span>Spark</span><span>NLP</span><span>Axtria</span></div>
+          </article>
+
+          <article class="proj reveal spot t-lake" data-f="lake">
+            <div class="proj-top">
+              <span class="proj-idx">P/05</span>
+              <a class="proj-link" href="https://github.com/anchitgupt/data-dbt" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i> source
+              </a>
+            </div>
+            <h3 class="proj-title">data-dbt</h3>
+            <p class="proj-desc">
+              A production-grade dbt project for e-commerce analytics — 11 models, 56 tests, CI/CD,
+              BI integration and an interactive GitHub Pages site. Built on dbt + DuckDB, so the
+              whole warehouse runs on a laptop.
+            </p>
+            <div class="proj-metrics">
+              <div><b>11</b><span>models</span></div>
+              <div><b>56</b><span>tests</span></div>
+              <div><b>CI/CD</b><span>every PR</span></div>
+            </div>
+            <div class="proj-tags"><span>dbt</span><span>DuckDB</span><span>Analytics Engineering</span></div>
+          </article>
+
+          <article class="proj reveal spot t-lake" data-f="lake">
+            <div class="proj-top">
+              <span class="proj-idx">P/06</span>
+              <a class="proj-link" href="https://github.com/ez-biz/data-builder" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i> source
+              </a>
+            </div>
+            <h3 class="proj-title">data-builder</h3>
+            <p class="proj-desc">
+              A visual ETL platform — connect databases, browse catalogs, build pipelines by drag and
+              drop, stream CDC to S3, then schedule, monitor and export logs. FastAPI + React.
+            </p>
+            <div class="proj-tags"><span>ETL</span><span>CDC</span><span>FastAPI</span><span>React</span></div>
+          </article>
+
+          <article class="proj reveal spot t-lake" data-f="lake tools">
+            <div class="proj-top">
+              <span class="proj-idx">P/07</span>
+              <a class="proj-link" href="https://github.com/ez-biz/datalearn" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i> source
+              </a>
+            </div>
+            <h3 class="proj-title">datalearn</h3>
+            <p class="proj-desc">
+              LeetCode-style SQL practice that runs entirely in the browser — every solution
+              validated by DuckDB-WASM, plus a learning hub and admin CMS. Next.js, Prisma, Monaco.
+            </p>
+            <div class="proj-tags"><span>DuckDB-WASM</span><span>Next.js</span><span>SQL</span><span>Education</span></div>
+          </article>
+
+          <article class="proj reveal spot t-ai" data-f="ai">
+            <div class="proj-top">
+              <span class="proj-idx">P/08</span>
+              <a class="proj-link" href="https://github.com/anchitgupt/learn_llm_code" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i> source
+              </a>
+            </div>
+            <h3 class="proj-title">learn_llm_code</h3>
+            <p class="proj-desc">
+              Build an LLM from scratch: 15 runnable Python scripts that walk from a bare neural
+              network to a 2026-architecture, DPO-aligned tiny GPT — with a companion site.
+            </p>
+            <div class="proj-tags"><span>LLM</span><span>DPO</span><span>PyTorch</span><span>From Scratch</span></div>
+          </article>
+
+          <article class="proj reveal spot t-mlops" data-f="mlops ai">
+            <div class="proj-top">
+              <span class="proj-idx">P/09</span>
+              <a class="proj-link" href="https://github.com/anchitgupt/pytq" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i> source
+              </a>
+            </div>
+            <h3 class="proj-title">pytq</h3>
+            <p class="proj-desc">
+              TurboQuant for PyTorch — near-optimal vector quantization for LLM KV-cache compression.
+              The unglamorous inference work that decides whether a model is affordable to serve.
+            </p>
+            <div class="proj-tags"><span>Quantization</span><span>KV Cache</span><span>PyTorch</span><span>Inference</span></div>
+          </article>
+
+          <article class="proj reveal spot t-mlops" data-f="mlops">
+            <div class="proj-top">
+              <span class="proj-idx">P/10</span>
+              <a class="proj-link" href="https://github.com/anchitgupt/r-llm" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i> source
+              </a>
+            </div>
+            <h3 class="proj-title">r-llm</h3>
+            <p class="proj-desc">
+              Python vs Rust, honestly measured: an OpenAI-compatible batch-summariser CLI built
+              twice, with a deterministic mock server, cross-language golden checks and benchmarks.
+            </p>
+            <div class="proj-tags"><span>Rust</span><span>Python</span><span>Benchmarks</span><span>LLM Ops</span></div>
+          </article>
+
+          <article class="proj reveal spot t-ai" data-f="ai">
+            <div class="proj-top">
+              <span class="proj-idx">P/11</span>
+              <a class="proj-link" href="https://github.com/anchitgupt/open-desktop-gpt" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i> source
+              </a>
+            </div>
+            <h3 class="proj-title">open-desktop-gpt</h3>
+            <p class="proj-desc">
+              Your LLM compiles the wiki, you read it. A desktop app inspired by Karpathy's
+              LLM-knowledge-base idea — generation as a reading surface, not a chat log.
+            </p>
+            <div class="proj-tags"><span>LLM</span><span>TypeScript</span><span>Desktop</span></div>
+          </article>
+
+          <article class="proj reveal spot t-mlops" data-f="mlops">
+            <div class="proj-top">
+              <span class="proj-idx">P/12</span>
+              <a class="proj-link" href="https://github.com/anchitgupt/papers-code" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i> source
+              </a>
+            </div>
+            <h3 class="proj-title">papers-code</h3>
+            <p class="proj-desc">
+              Implementations of Standard ES and EGGROLL from <i>Evolution Strategies at the
+              Hyperscale</i> (arXiv:2511.16652). Reading a paper properly means running it.
+            </p>
+            <div class="proj-tags"><span>Research</span><span>Evolution Strategies</span><span>Python</span></div>
+          </article>
+
+          <article class="proj reveal spot t-ai" data-f="ai">
+            <div class="proj-top">
+              <span class="proj-idx">P/13</span>
+              <a class="proj-link" href="https://github.com/anchitgupt/wikipedia-sematics" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i> source
+              </a>
+            </div>
+            <h3 class="proj-title">Wikipedia Citation Verifier</h3>
+            <p class="proj-desc">
+              Retrieval before it was fashionable — a Chrome extension that embeds a cited document
+              and surfaces the sentence closest to the claim, so you can check whether the citation
+              says what it claims. IIIT Delhi IR project.
+            </p>
+            <div class="proj-tags"><span>Embeddings</span><span>doc2vec</span><span>Chrome Ext</span><span>IR</span></div>
+          </article>
+
+          <article class="proj reveal spot t-tools" data-f="tools">
+            <div class="proj-top">
+              <span class="proj-idx">P/14</span>
+              <a class="proj-link" href="https://github.com/ez-biz/easy-pdf" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i> source
+              </a>
+            </div>
+            <h3 class="proj-title">easy-pdf</h3>
+            <p class="proj-desc">
+              Free online PDF tools — merge, split, compress, convert, OCR. 100% client-side, so
+              files never leave the device. The privacy guarantee is architectural, not a promise.
+            </p>
+            <div class="proj-tags"><span>Client-side</span><span>PDF</span><span>JavaScript</span></div>
+          </article>
+
+        </div>
+        <p class="empty-note" id="projEmpty" hidden>nothing here yet — try another filter.</p>
+      </div>
+    </section>
+
+    <!-- ══ WRITING ══════════════════════════════════════════════ -->
+    <section id="writing" class="sec sec-band">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-num">06</span>
+          <h2 class="sec-title" data-scramble>Writing</h2>
+          <span class="sec-rule"></span>
+          <span class="sec-meta">16 articles · @anchitgupt</span>
+        </header>
+
+        <p class="sec-lede reveal">
+          I write the series I wanted when I was learning this: how a Medallion actually behaves in
+          production, where MLOps meets data engineering, and what AI genuinely changes about the job.
+        </p>
+
+        <div class="filters reveal" role="tablist" aria-label="Filter articles" data-for="postGrid" data-empty="postEmpty">
+          <button class="chip on" role="tab" aria-selected="true" data-f="all">all</button>
+          <button class="chip" role="tab" aria-selected="false" data-f="lake">medallion</button>
+          <button class="chip" role="tab" aria-selected="false" data-f="mlops">mlops</button>
+          <button class="chip" role="tab" aria-selected="false" data-f="ai">ai</button>
+          <button class="chip" role="tab" aria-selected="false" data-f="model">modelling</button>
+        </div>
+
+        <div class="posts" id="postGrid">
+
+          <a class="post reveal t-model" data-f="model" href="https://medium.com/@anchitgupt/fact-or-dimension-the-all-in-one-guide-to-reading-a-data-model-and-nailing-the-interview-4d580d8fb0af" target="_blank" rel="noopener">
+            <span class="post-date">2026 · Jul 05</span>
+            <h3>Fact or Dimension? The All-in-One Guide to Reading a Data Model</h3>
+            <p>A practical decision framework for identifying fact and dimension tables — plus exactly how to explain your reasoning in an interview.</p>
+            <span class="post-tags"><span>data-modeling</span><span>fact-table</span></span>
+            <i class="fas fa-arrow-up-right-from-square"></i>
           </a>
-          <a href="https://www.linkedin.com/in/anchitgupt" target="_blank" rel="noopener" title="LinkedIn">
-            <i class="fab fa-linkedin"></i>
+
+          <a class="post reveal t-lake" data-f="lake" href="https://medium.com/@anchitgupt/building-a-streaming-medallion-one-micro-batch-at-a-time-9fec43faddd9" target="_blank" rel="noopener">
+            <span class="post-date">2026 · Jul 05</span>
+            <h3>Building a Streaming Medallion: One Micro-Batch at a Time</h3>
+            <p>Most Medallion tutorials quietly assume a batch world — a nightly job reads yesterday's files and rebuilds a table. That model breaks on a stream.</p>
+            <span class="post-tags"><span>medallion</span><span>streaming</span></span>
+            <i class="fas fa-arrow-up-right-from-square"></i>
           </a>
-          <a href="https://twitter.com/Anchit_Gupt" target="_blank" rel="noopener" title="Twitter">
-            <i class="fab fa-twitter"></i>
+
+          <a class="post reveal t-mlops" data-f="mlops" href="https://medium.com/area-21/modern-data-engineering-meets-mlops-building-the-backbone-of-ai-driven-products-3cecac8171be" target="_blank" rel="noopener">
+            <span class="post-date">2026 · Apr 25</span>
+            <h3>Modern Data Engineering Meets MLOps</h3>
+            <p>How today's data engineers are evolving from pipeline builders into platform enablers — and why MLOps is the missing bridge to AI-driven products.</p>
+            <span class="post-tags"><span>mlops</span><span>machine-learning</span></span>
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+
+          <a class="post reveal t-ai" data-f="ai" href="https://medium.com/area-21/how-ai-is-reshaping-data-engineering-a-practical-guide-with-examples-5b120dc0c2b4" target="_blank" rel="noopener">
+            <span class="post-date">2026 · Apr 18</span>
+            <h3>How AI Is Reshaping Data Engineering: A Practical Guide</h3>
+            <p>From self-healing pipelines to intelligent schema detection — AI is not replacing data engineers, it is making them considerably faster.</p>
+            <span class="post-tags"><span>ai</span><span>ai-agent</span></span>
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+
+          <a class="post reveal t-ai" data-f="ai" href="https://medium.com/area-21/ai-meets-data-engineering-the-complete-landscape-7d5bb29bc8c0" target="_blank" rel="noopener">
+            <span class="post-date">2026 · Apr 16</span>
+            <h3>AI Meets Data Engineering: The Complete Landscape</h3>
+            <p>Article 1 of the “AI × Data Engineering” series — a practitioner's guide to smarter pipelines and where automation actually pays off.</p>
+            <span class="post-tags"><span>ai</span><span>orchestration</span></span>
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+
+          <a class="post reveal t-ai" data-f="ai" href="https://medium.com/@anchitgupt/building-data-engineering-solutions-with-ai-the-new-playbook-3261b65e48dd" target="_blank" rel="noopener">
+            <span class="post-date">2026 · Apr 16</span>
+            <h3>Building Data Engineering Solutions with AI: The New Playbook</h3>
+            <p>From pipeline plumbing to intelligent systems — how AI is rewriting the data engineer's job description.</p>
+            <span class="post-tags"><span>ai</span><span>data-pipeline</span></span>
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+
+          <a class="post reveal t-lake" data-f="lake" href="https://medium.com/area-21/end-to-end-medallion-pipeline-wiring-bronze-silver-and-gold-together-in-production-4fe56117af52" target="_blank" rel="noopener">
+            <span class="post-date">2026 · Mar 27</span>
+            <h3>End-to-End Medallion Pipeline — Bronze, Silver and Gold in Production</h3>
+            <p>Any single layer is straightforward in isolation. The complexity — and the craft — lives in wiring them together.</p>
+            <span class="post-tags"><span>medallion</span><span>production</span></span>
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+
+          <a class="post reveal t-lake" data-f="lake" href="https://medium.com/area-21/partitioning-clustering-strategy-for-medallion-tables-why-where-you-store-data-matters-as-much-cd0c159b55b2" target="_blank" rel="noopener">
+            <span class="post-date">2026 · Mar 27</span>
+            <h3>Partitioning &amp; Clustering Strategy for Medallion Tables</h3>
+            <p>A perfectly modelled Gold table that takes 3 minutes to query will be bypassed within a month. Someone will build a workaround.</p>
+            <span class="post-tags"><span>partitioning</span><span>liquid-clustering</span></span>
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+
+          <a class="post reveal t-model" data-f="model lake" href="https://medium.com/@anchitgupt/fact-table-design-in-the-medallion-gold-layer-why-your-aggregations-are-lying-to-you-2746f3f44d70" target="_blank" rel="noopener">
+            <span class="post-date">2026 · Mar 21</span>
+            <h3>Fact Table Design in the Gold Layer — Why Your Aggregations Are Lying</h3>
+            <p>A wrong dimension gives you the wrong label. A wrong fact gives you the wrong number — and a convincingly wrong number is worse than an obviously broken one.</p>
+            <span class="post-tags"><span>fact-table</span><span>big-data</span></span>
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+
+          <a class="post reveal t-model" data-f="model lake" href="https://medium.com/area-21/scd-type-2-in-streaming-pipelines-why-everything-you-know-about-batch-scd2-breaks-at-the-stream-2c12085c7b6f" target="_blank" rel="noopener">
+            <span class="post-date">2026 · Mar 19</span>
+            <h3>SCD Type 2 in Streaming Pipelines</h3>
+            <p>Batch SCD2 is a solved problem. Streaming SCD2 is a different animal entirely — and most teams only discover the difference in production.</p>
+            <span class="post-tags"><span>scd</span><span>dimension-modelling</span></span>
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+
+          <a class="post reveal t-model" data-f="model lake" href="https://medium.com/area-21/choosing-the-right-dimension-for-your-medallion-table-a-practical-guide-to-scds-e57e2303a990" target="_blank" rel="noopener">
+            <span class="post-date">2026 · Mar 18</span>
+            <h3>Choosing the Right Dimension for Your Medallion Table</h3>
+            <p>Your pipeline is only as smart as the decisions baked into the Gold layer — and those decisions start with how you handle a slowly changing dimension.</p>
+            <span class="post-tags"><span>scd</span><span>data-modelling</span></span>
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+
+          <a class="post reveal t-model" data-f="model" href="https://medium.com/@anchitgupt/best-sql-hacks-i-wouldnt-have-believed-if-i-hadn-t-used-them-myself-2511e18f15a1" target="_blank" rel="noopener">
+            <span class="post-date">2026 · Feb 07</span>
+            <h3>Best SQL Hacks I Wouldn't Have Believed If I Hadn't Used Them Myself</h3>
+            <p>A data engineer's collection of SQL tricks that changed how I write queries — VALUES as an inline table, GROUPING SETS, LATERAL joins, DISTINCT ON.</p>
+            <span class="post-tags"><span>sql</span><span>data-engineering</span></span>
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+
+          <a class="post reveal t-model" data-f="model" href="https://medium.com/@anchitgupt/the-expert-way-to-decide-the-data-model-for-any-data-engineering-problem-5ff383ba8bca" target="_blank" rel="noopener">
+            <span class="post-date">2026 · Feb 07</span>
+            <h3>The Expert Way to Decide the Data Model for Any Problem</h3>
+            <p>A decision process for picking the right model for the problem in front of you, rather than defaulting to whatever shape you used last time.</p>
+            <span class="post-tags"><span>data-modelling</span><span>data-engineering</span></span>
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+
+          <a class="post reveal t-lake" data-f="lake" href="https://medium.com/area-21/when-the-orders-stop-coming-a-data-engineering-deep-dive-into-doordashs-declining-orders-dc2babf00fa7" target="_blank" rel="noopener">
+            <span class="post-date">2026 · Jan 04</span>
+            <h3>RCA Analysis: A Data Engineering Deep Dive into Declining Orders</h3>
+            <p>A case study in root-cause analysis — tracing a fall in orders back through the data until the actual reason surfaces.</p>
+            <span class="post-tags"><span>case-study</span><span>data-engineering</span></span>
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+
+          <a class="post reveal t-model" data-f="model lake" href="https://medium.com/area-21/uber-eats-data-warehouse-architecture-a-complete-guide-to-trip-data-modeling-and-analytics-storage-34c8c65b4868" target="_blank" rel="noopener">
+            <span class="post-date">2025 · Nov 27</span>
+            <h3>Uber Eats Data Warehouse Architecture</h3>
+            <p>A complete guide to trip data modelling and analytics storage — the warehouse design behind delivery at scale, and the interview questions it invites.</p>
+            <span class="post-tags"><span>data-modeling</span><span>interview</span></span>
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+
+          <a class="post reveal t-lake" data-f="lake" href="https://medium.com/area-21/why-should-people-move-to-big-data-at-a-certain-point-1f2f8f12d353" target="_blank" rel="noopener">
+            <span class="post-date">2025 · Nov 12</span>
+            <h3>Why Should People Move to Big Data at a Certain Point?</h3>
+            <p>When a workload genuinely outgrows conventional tooling — and what actually changes at the point you make the move.</p>
+            <span class="post-tags"><span>big-data</span><span>data-engineering</span></span>
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+
+        </div>
+        <p class="empty-note" id="postEmpty" hidden>nothing here yet — try another filter.</p>
+
+        <div class="posts-cta reveal">
+          <a href="https://medium.com/@anchitgupt" target="_blank" rel="noopener" class="btn btn-ghost magnetic">
+            <i class="fab fa-medium"></i> <span>Everything on Medium</span>
           </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
+    <!-- ══ CREDENTIALS ══════════════════════════════════════════ -->
+    <section id="credentials" class="sec">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-num">07</span>
+          <h2 class="sec-title" data-scramble>Credentials</h2>
+          <span class="sec-rule"></span>
+          <span class="sec-meta">2 degrees · 8 certs</span>
+        </header>
+
+        <div class="edu">
+          <article class="edu-card reveal">
+            <span class="edu-years">2019 — 2021</span>
+            <h3>M.Tech, Computer Science</h3>
+            <p class="edu-org">IIIT Delhi</p>
+            <p class="edu-note">
+              Specialised in Natural Language Processing and Deep Learning. Research work in
+              semantic analysis and information retrieval — the roots of everything I now call RAG.
+            </p>
+            <span class="edu-badge"><i class="fas fa-trophy"></i> GATE 98.14 percentile</span>
+          </article>
+          <article class="edu-card reveal">
+            <span class="edu-years">2014 — 2018</span>
+            <h3>B.Tech, Computer Science</h3>
+            <p class="edu-org">Moradabad Institute of Technology · AKTU</p>
+            <p class="edu-note">
+              Foundations in programming, Android development and machine learning — where the
+              Blood Bank Finder and my first models came from.
+            </p>
+            <span class="edu-badge"><i class="fas fa-medal"></i> First Division</span>
+          </article>
+        </div>
+
+        <div class="certs">
+          <div class="cert reveal"><i class="fas fa-award"></i><div><b>GATE 2019</b><span>98.14 percentile</span></div></div>
+          <div class="cert reveal"><i class="fas fa-database"></i><div><b>Databricks Fundamentals</b><span>Databricks</span></div></div>
+          <div class="cert reveal"><i class="fas fa-link"></i><div><b>LangChain for LLM Apps</b><span>DeepLearning.AI</span></div></div>
+          <div class="cert reveal"><i class="fas fa-wind"></i><div><b>Airflow Fundamentals</b><span>Astronomer</span></div></div>
+          <div class="cert reveal"><i class="fas fa-cloud"></i><div><b>Azure Databricks &amp; Spark Core</b><span>Udemy</span></div></div>
+          <div class="cert reveal"><i class="fas fa-table"></i><div><b>MTA Database Fundamentals</b><span>Microsoft</span></div></div>
+          <div class="cert reveal"><i class="fas fa-mug-hot"></i><div><b>J2SE Java Certification</b><span>Oracle</span></div></div>
+          <div class="cert reveal"><i class="fab fa-android"></i><div><b>Android App Development</b><span>Google</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CONTACT ══════════════════════════════════════════════ -->
+    <section id="contact" class="sec contact">
+      <div class="wrap">
+        <span class="sec-num reveal">08</span>
+        <h2 class="contact-title reveal" data-scramble>Let's build something</h2>
+        <p class="contact-desc reveal">
+          I'm open to senior data engineering and platform roles — especially where the lakehouse
+          meets MLOps and AI. Got a gnarly pipeline, a cost problem, or a RAG system that keeps
+          making things up? My inbox is genuinely open.
+        </p>
+
+        <div class="contact-shell reveal">
+          <div class="shell-head"><span class="dag-dots"><i></i><i></i><i></i></span><span>mail — anchit</span></div>
+          <div class="shell-body">
+            <p><span class="p">$</span> echo $EMAIL</p>
+            <p class="out" id="emailOut">anchitgupt2012@gmail.com</p>
+            <p><span class="p">$</span> <span class="caret">▊</span></p>
+          </div>
+        </div>
+
+        <div class="contact-cta reveal">
+          <a href="mailto:anchitgupt2012@gmail.com" class="btn btn-solid magnetic">
+            <i class="fas fa-paper-plane"></i> <span>Say hello</span>
+          </a>
+          <button class="btn btn-ghost magnetic" id="copyEmail">
+            <i class="fas fa-copy"></i> <span>Copy address</span>
+          </button>
+        </div>
+
+        <div class="socials reveal">
+          <a href="https://github.com/anchitgupt" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/anchitgupt" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://medium.com/@anchitgupt" target="_blank" rel="noopener" aria-label="Medium"><i class="fab fa-medium-m"></i></a>
+          <a href="https://twitter.com/Anchit_Gupt" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer class="footer">
-    <p class="footer-text">
-      Designed & Built by Anchit Gupta · 2026
-    </p>
+    <div class="wrap footer-inner">
+      <span>Designed &amp; built by Anchit Gupta</span>
+      <span class="footer-mid">no template · no page builder · <span id="footerYear">2026</span></span>
+      <button class="footer-hint" id="footerPalette"><i class="fas fa-terminal"></i> ⌘K</button>
+    </div>
   </footer>
 
-  <!-- Scripts -->
+  <button class="to-top" id="toTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- ══ COMMAND PALETTE ════════════════════════════════════════ -->
+  <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Command palette" hidden>
+    <div class="palette-scrim" data-close></div>
+    <div class="palette-box">
+      <div class="palette-input">
+        <i class="fas fa-magnifying-glass"></i>
+        <input id="paletteInput" type="text" placeholder="Jump to a section, copy my email, open the terminal…"
+          autocomplete="off" spellcheck="false" aria-label="Search commands">
+        <kbd>esc</kbd>
+      </div>
+      <ul class="palette-list" id="paletteList" role="listbox"></ul>
+      <div class="palette-foot">
+        <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+        <span><kbd>↵</kbd> select</span>
+        <span><kbd>esc</kbd> close</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TERMINAL ═══════════════════════════════════════════════ -->
+  <div class="term" id="term" hidden>
+    <div class="term-head" id="termHead">
+      <span class="dag-dots"><i data-close-term></i><i></i><i></i></span>
+      <span class="term-title">anchit@portfolio — zsh</span>
+      <button class="term-x" id="termClose" aria-label="Close terminal"><i class="fas fa-xmark"></i></button>
+    </div>
+    <div class="term-body" id="termBody"></div>
+    <form class="term-form" id="termForm">
+      <span class="p">anchit@portfolio<i>:</i>~<i>$</i></span>
+      <input id="termInput" type="text" autocomplete="off" spellcheck="false" aria-label="Terminal input">
+    </form>
+  </div>
+
   <script src="script.js"></script>
 </body>
 
